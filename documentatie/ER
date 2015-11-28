@@ -229,7 +229,7 @@
         <color>#ffffcc</color>
         <column-list>
           <column>
-            <name>vasnr</name>
+            <name>vastnr</name>
             <data-type>INTEGER</data-type>
             <required>False</required>
             <primary-key>False</primary-key>
