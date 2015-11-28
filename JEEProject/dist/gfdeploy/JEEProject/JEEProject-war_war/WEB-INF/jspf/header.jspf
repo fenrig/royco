@@ -1,0 +1,6 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="header">
+    <div class="logo floatLeft"><a href="index.jsp"><img class="logo" src="images/logo.jpg" /></a></div>
+    <div class="account floatRight"><a href="logout.jsp">Logout</a><a href="login.jsp">Login</a></div>
+</div>

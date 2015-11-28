@@ -1,0 +1,33 @@
+/* AUTOMATICALLY GENERATED ON Tue Nov 24 11:13:56 CET 2015*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebResourcePermission "/:/werknemer.jsp:/klant.jsp";
+  permission javax.security.jacc.WebUserDataPermission "/klant.jsp";
+  permission javax.security.jacc.WebUserDataPermission "/:/werknemer.jsp:/klant.jsp";
+  permission javax.security.jacc.WebUserDataPermission "/werknemer.jsp";
+};
+
+grant      principal org.glassfish.security.common.Group "klant" {
+  permission javax.security.jacc.WebResourcePermission "/klant.jsp";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "klant";
+  permission javax.security.jacc.WebRoleRefPermission "default", "klant";
+  permission javax.security.jacc.WebRoleRefPermission "controller", "klant";
+  permission javax.security.jacc.WebRoleRefPermission "", "klant";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+  permission javax.security.jacc.WebRoleRefPermission "controller", "**";
+};
+
+grant      principal org.glassfish.security.common.Group "werknemer" {
+  permission javax.security.jacc.WebResourcePermission "/werknemer.jsp";
+  permission javax.security.jacc.WebRoleRefPermission "controller", "werknemer";
+  permission javax.security.jacc.WebRoleRefPermission "", "werknemer";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "werknemer";
+  permission javax.security.jacc.WebRoleRefPermission "default", "werknemer";
+};
+
