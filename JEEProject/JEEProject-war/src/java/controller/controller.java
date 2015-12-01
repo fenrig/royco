@@ -1,3 +1,5 @@
+package controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -30,8 +32,7 @@ public class controller extends HttpServlet
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
@@ -53,12 +54,12 @@ public class controller extends HttpServlet
         forwardPage("index.jsp", request, response);
     }
 
-    void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
     }
 
-    void RedirectPage(String page, HttpServletResponse response) throws ServletException, IOException
+    public static void RedirectPage(String page, HttpServletResponse response) throws ServletException, IOException
     {
         response.sendRedirect(response.encodeURL(page));
     }

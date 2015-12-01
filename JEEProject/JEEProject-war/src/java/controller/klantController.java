@@ -1,3 +1,5 @@
+package controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,13 +7,12 @@
  */
 
 import beans.*;
+import static controller.controller.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 /**
  *
@@ -33,24 +34,17 @@ public class klantController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet klantController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-            Klant klant = localBean.getKlant(persoon);
-            
-            out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPvoornaam() + "</h1>");
-            out.println("<h1>Uw klantennummer is " + klant.getKnr()+ "</h1>");
-            
-            out.println("</body>");
-            out.println("</html>");
-        }
+        HttpSession session = request.getSession();
+        
+        Persoon persoon = localBean.getPersoon(request.getRemoteUser());
+        Klant klant = localBean.getKlant(persoon);
+        Filiaal filiaal = localBean.getFiliaal(klant);
+        
+        session.setAttribute("klant", klant);
+        session.setAttribute("persoon", persoon);
+        session.setAttribute("filiaal", filiaal);
+        
+        forwardPage("klant.jsp", request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

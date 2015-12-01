@@ -14,9 +14,17 @@
     </head>
     <body>
         <%@ include file="WEB-INF/jspf/header.jspf" %>
-        <h1>Hello Klant!</h1>
+        <h1>Hello ${sessionScope.persoon.pvoornaam} ${sessionScope.persoon.pachternaam}!</h1>
+        <p>Welkom bij ${sessionScope.filiaal.fnaam}, uw klantenummer is: ${sessionScope.klant.knr}</p>
         
-        ${sessionScope.reservaties}
-        
+        <h2>Uw leningen</h2>
+        <table>
+            <thead>
+                
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
     </body>
 </html>

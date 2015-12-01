@@ -35,4 +35,10 @@ public class localStatelessBean implements localStatelessBeanLocal {
     public Werknemer getWerknemer(Persoon persoon){
         return (Werknemer)em.createNamedQuery("Werknemer.findByPnr").setParameter("pnr", persoon.getPnr()).getSingleResult();
     }
+
+    @Override
+    public Filiaal getFiliaal(Klant klant)
+    {
+        return (Filiaal)em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", klant.getFnr()).getSingleResult();
+    }
 }
