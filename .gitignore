@@ -1,2 +1,4 @@
 nbproject/
 build/
+domain/generated/
+JEEProject/dist/gfdeploy/JEEProject
