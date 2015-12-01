@@ -18,5 +18,5 @@ public interface localStatelessBeanLocal {
 
     public Persoon getPersoon(String pUserNaam);
     public Klant getKlant(Persoon persoon);
-    
+    public Werknemer getWerknemer(Persoon persoon);
 }

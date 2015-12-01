@@ -38,15 +38,15 @@ public class bankController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet klantController</title>");            
+            out.println("<title>Servlet bankController</title>");            
             out.println("</head>");
             out.println("<body>");
             Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-            Klant klant = localBean.getKlant(persoon);
+            Werknemer werknemer = localBean.getWerknemer(persoon);
             
             out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
             out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPvoornaam() + "</h1>");
-            out.println("<h1>Uw klantennummer is " + klant.getKnr()+ "</h1>");
+            out.println("<h1>Uw werknemernummer is " + werknemer.getWnr() + "</h1>");
             
             out.println("</body>");
             out.println("</html>");

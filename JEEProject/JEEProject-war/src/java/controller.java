@@ -46,7 +46,7 @@ public class controller extends HttpServlet
         }
         else if (state.equals("werknemer"))
         {
-            RedirectPage("werknemer.jsp", response);
+            RedirectPage("bankController", response);
             return;
         }
 
