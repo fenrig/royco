@@ -4,9 +4,17 @@
         <servlet-name>controller</servlet-name>
         <servlet-class>controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>klantController</servlet-name>
+        <servlet-class>klantController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controller</servlet-name>
         <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>klantController</servlet-name>
+        <url-pattern>/klantController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -22,6 +30,7 @@
             <web-resource-name>GeneralConstraint</web-resource-name>
             <description/>
             <url-pattern>/klant.jsp</url-pattern>
+            <url-pattern>/klantController</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>voor klanten</description>

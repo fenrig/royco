@@ -534,10 +534,18 @@
       <property name="archiveType" value="ear"></property>
       <property name="isComposite" value="true"></property>
       <property name="appLocation" value="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/"></property>
+      <property name="org.glassfish.ejb.container.application_unique_id" value="94960009776398336"></property>
       <property name="defaultAppName" value="JEEProject"></property>
       <module name="JEEProject-war.war">
         <engine sniffer="security"></engine>
         <engine sniffer="web"></engine>
+      </module>
+      <module name="JEEProject-ejb.jar">
+        <engine sniffer="ejb"></engine>
+        <engine sniffer="security"></engine>
+        <engine sniffer="weld"></engine>
+        <engine sniffer="jpa"></engine>
+        <property name="org.glassfish.persistence.app_name_property" value="JEEProject"></property>
       </module>
       <engine sniffer="ear"></engine>
     </application>

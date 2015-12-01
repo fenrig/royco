@@ -19,12 +19,12 @@
 
         <div class="flexHorz">
             <div class="loginDiv">
-                <form action="<c:url value="klant.jsp" />" method="post">
+                <form action="<c:url value="controller" />" method="post">
                     <input type="hidden" value="klant" name="state" /><input type="submit" value="klanten" />
                 </form>
             </div>
             <div class="loginDiv">
-                <form action="<c:url value="werknemer.jsp" />" method="post">
+                <form action="<c:url value="controller" />" method="post">
                     <input type="hidden" value="werknemer" name="state" /><input type="submit" value="werknemers" />
                 </form>
             </div>

@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# maakt gebruik van mysql connector deze kan je vinden op
+#	https://dev.mysql.com/downloads/connector/python/
+
 import mysql.connector as _mysql
 import sys
 

@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -66,7 +66,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <title>JSP Page (index)</title>\n");
+      out.write("        <title>Login</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
@@ -80,26 +80,17 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("</div>\n");
       out.write("\n");
-      out.write("        <h1>Welkom by Royco Bank!</h1>\n");
-      out.write("\n");
-      out.write("        <div class=\"flexHorz\">\n");
-      out.write("            <div class=\"loginDiv\">\n");
-      out.write("                <form action=\"");
+      out.write("        <h1>Welkom</h1>\n");
+      out.write("        <form method=post action=\"");
       if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
-      out.write("\" method=\"post\">\n");
-      out.write("                    <input type=\"hidden\" value=\"klant\" name=\"state\" /><input type=\"submit\" value=\"klanten\" />\n");
-      out.write("                </form>\n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"loginDiv\">\n");
-      out.write("                <form action=\"");
-      if (_jspx_meth_c_url_1(_jspx_page_context))
-        return;
-      out.write("\" method=\"post\">\n");
-      out.write("                    <input type=\"hidden\" value=\"werknemer\" name=\"state\" /><input type=\"submit\" value=\"werknemers\" />\n");
-      out.write("                </form>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
+      out.write("\">\n");
+      out.write("            <table>\n");
+      out.write("                <tr><td>Naam: </td><td><input type=\"text\" name=\"j_username\" /></td></tr>\n");
+      out.write("                <tr><td>Paswoord: </td><td><input type=\"password\" name=\"j_password\" /><input type=\"hidden\" name=\"state\" value=\"loggedIn\"></td></tr>\n");
+      out.write("            </table>\n");
+      out.write("            <input type=\"submit\" />\n");
+      out.write("        </form>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
@@ -123,31 +114,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_0.setPageContext(_jspx_page_context);
     _jspx_th_c_url_0.setParent(null);
-    _jspx_th_c_url_0.setValue("controller");
+    _jspx_th_c_url_0.setValue("j_security_check");
     int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
     if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
       return true;
     }
     _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_1.setParent(null);
-    _jspx_th_c_url_1.setValue("controller");
-    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
-    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
     return false;
   }
 }

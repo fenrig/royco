@@ -15,5 +15,8 @@
     <body>
         <%@ include file="WEB-INF/jspf/header.jspf" %>
         <h1>Hello Klant!</h1>
+        
+        ${sessionScope.reservaties}
+        
     </body>
 </html>
