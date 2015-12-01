@@ -19,8 +19,7 @@
         <form method=post action="<c:url value="j_security_check" />">
             <table>
                 <tr><td>Naam: </td><td><input type="text" name="j_username" /></td></tr>
-                <tr><td>Paswoord: </td><td><input type="password" name="j_password" /></td></tr>
-                <input type="hidden" name="state" value="loggedIn">
+                <tr><td>Paswoord: </td><td><input type="password" name="j_password" /><input type="hidden" name="state" value="loggedIn"></td></tr>
             </table>
             <input type="submit" />
         </form>

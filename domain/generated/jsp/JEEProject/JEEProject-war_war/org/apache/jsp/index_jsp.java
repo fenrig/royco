@@ -72,9 +72,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<div class=\"header\">\n");
       out.write("    <div class=\"logo floatLeft\"><a href=\"index.jsp\"><img class=\"logo\" src=\"images/logo.jpg\" /></a></div>\n");
-      out.write("    <div class=\"account floatRight\"><a href=\"logout.jsp\">Logout</a><a href=\"login.jsp\">Login</a></div>\n");
+      out.write("    <div class=\"account floatRight\">\n");
+      out.write("        <a href=\"logout.jsp\">Logout</a>\n");
+      out.write("    </div>\n");
       out.write("</div>\n");
       out.write("\n");
       out.write("        <h1>Welkom by Royco Bank!</h1>\n");
