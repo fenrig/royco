@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 
-import beans.localStatelessBeanLocal;
+import beans.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Roy
+ * @author student
  */
-public class controller extends HttpServlet
-{
+public class klantController extends HttpServlet {
+
     @EJB
     private localStatelessBeanLocal localBean;
 
@@ -31,36 +31,26 @@ public class controller extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-
-        String state = request.getParameter("state");
-        state = (state == null) ? "" : state;
-
-        if (state.equals("klant"))
-        {
-            RedirectPage("klantController", response);
-            return;
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet klantController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            Persoon persoon = localBean.getPersoon(request.getRemoteUser());
+            Klant klant = localBean.getKlant(persoon);
+            
+            out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPvoornaam() + "</h1>");
+            out.println("<h1>Uw klantennummer is " + klant.getKnr()+ "</h1>");
+            
+            out.println("</body>");
+            out.println("</html>");
         }
-        else if (state.equals("werknemer"))
-        {
-            RedirectPage("werknemer.jsp", response);
-            return;
-        }
-
-        forwardPage("index.jsp", request, response);
-    }
-
-    void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
-    }
-
-    void RedirectPage(String page, HttpServletResponse response) throws ServletException, IOException
-    {
-        response.sendRedirect(response.encodeURL(page));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -74,8 +64,7 @@ public class controller extends HttpServlet
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -89,8 +78,7 @@ public class controller extends HttpServlet
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -100,8 +88,7 @@ public class controller extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
