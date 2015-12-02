@@ -16,7 +16,7 @@
     <body>
         <%@ include file="WEB-INF/jspf/header.jspf" %>
         <h1>Hello ${sessionScope.persoon.pvoornaam} ${sessionScope.persoon.pachternaam}!</h1>
-        <p>Welkom bij ${sessionScope.klant.fnr.fnaam}, uw klantenummer is: ${sessionScope.klant.knr}</p>
+        <p>Welkom bij ${sessionScope.persoon.klant.fnr.fnaam}, uw klantenummer is: ${sessionScope.persoon.klant.knr}</p>
 
         <h2>Uw leningen</h2>
         <table>
@@ -25,16 +25,25 @@
                     <th>Nummer</th>
                     <th>Saldo</th>
                     <th>Interest</th>
+                    <th>Max Interest</th>
                     <th>Onderpand</th>
                     <th>Soort</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="lening" items="${sessionScope.leningen}">
+                <c:forEach var="lening" items="${sessionScope.persoon.klant.leningList}">
                     <tr>
                         <td>${lening.lnr}</td>
                         <td>${lening.saldo}</td>
                         <td>${lening.interest}</td>
+                        <c:choose>
+                            <c:when test="${!empty lening.variabeleLening}">
+                                <td>${lening.variabeleLening.maxrente}</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>n/a</td>
+                            </c:otherwise>
+                        </c:choose>
                         <c:choose>
                             <c:when test="${lening.anr.anr != 0}">
                                 <td>${lening.anr.straatnaam} ${lening.anr.straatnr}</td>

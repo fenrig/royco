@@ -5,8 +5,6 @@
  */
 package beans;
 
-import java.math.BigDecimal;
-import java.util.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +16,6 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class localStatelessBean implements localStatelessBeanLocal
 {
-
     @PersistenceContext
     private EntityManager em;
 

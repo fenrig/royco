@@ -37,13 +37,7 @@ public class klantController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         
-        Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-        Klant klant = persoon.getKlant(); //zou oneToOne moeten zijn
-        List leningen = klant.getLeningList();
-        
-        session.setAttribute("persoon", persoon);
-        session.setAttribute("klant", klant);
-        session.setAttribute("leningen", leningen);
+        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
         
         forwardPage("klant.jsp", request, response);
     }
