@@ -1,37 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package beans;
 
-import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.*;
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
- * @author student
+ * @author Roy Scheerens
  */
 @Entity
 @Table(name = "Variabele Lening")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "VariabeleLening.findAll", query = "SELECT v FROM VariabeleLening v"),
     @NamedQuery(name = "VariabeleLening.findByVarnr", query = "SELECT v FROM VariabeleLening v WHERE v.varnr = :varnr"),
-    @NamedQuery(name = "VariabeleLening.findByLnr", query = "SELECT v FROM VariabeleLening v WHERE v.lnr = :lnr"),
-    @NamedQuery(name = "VariabeleLening.findByMaxrente", query = "SELECT v FROM VariabeleLening v WHERE v.maxrente = :maxrente")})
-public class VariabeleLening implements Serializable {
+    @NamedQuery(name = "VariabeleLening.findByMaxrente", query = "SELECT v FROM VariabeleLening v WHERE v.maxrente = :maxrente")
+})
+public class VariabeleLening implements Serializable
+{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,72 +29,84 @@ public class VariabeleLening implements Serializable {
     private Integer varnr;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "lnr")
-    private int lnr;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "maxrente")
     private double maxrente;
+    @JoinColumn(name = "lnr", referencedColumnName = "lnr")
+    @OneToOne(optional = false)
+    private Lening lnr;
 
-    public VariabeleLening() {
+    public VariabeleLening()
+    {
     }
 
-    public VariabeleLening(Integer varnr) {
+    public VariabeleLening(Integer varnr)
+    {
         this.varnr = varnr;
     }
 
-    public VariabeleLening(Integer varnr, int lnr, double maxrente) {
+    public VariabeleLening(Integer varnr, double maxrente)
+    {
         this.varnr = varnr;
-        this.lnr = lnr;
         this.maxrente = maxrente;
     }
 
-    public Integer getVarnr() {
+    public Integer getVarnr()
+    {
         return varnr;
     }
 
-    public void setVarnr(Integer varnr) {
+    public void setVarnr(Integer varnr)
+    {
         this.varnr = varnr;
     }
 
-    public int getLnr() {
-        return lnr;
-    }
-
-    public void setLnr(int lnr) {
-        this.lnr = lnr;
-    }
-
-    public double getMaxrente() {
+    public double getMaxrente()
+    {
         return maxrente;
     }
 
-    public void setMaxrente(double maxrente) {
+    public void setMaxrente(double maxrente)
+    {
         this.maxrente = maxrente;
     }
 
+    public Lening getLnr()
+    {
+        return lnr;
+    }
+
+    public void setLnr(Lening lnr)
+    {
+        this.lnr = lnr;
+    }
+
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (varnr != null ? varnr.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VariabeleLening)) {
+        if (!(object instanceof VariabeleLening))
+        {
             return false;
         }
-        VariabeleLening other = (VariabeleLening) object;
-        if ((this.varnr == null && other.varnr != null) || (this.varnr != null && !this.varnr.equals(other.varnr))) {
+        VariabeleLening other = (VariabeleLening)object;
+        if ((this.varnr == null && other.varnr != null) || (this.varnr != null && !this.varnr.equals(other.varnr)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "beans.VariabeleLening[ varnr=" + varnr + " ]";
     }
     

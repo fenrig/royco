@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package beans;
 
 import java.math.BigDecimal;
+import java.util.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,29 +16,15 @@ import javax.persistence.PersistenceContext;
  * @author student
  */
 @Stateless
-public class localStatelessBean implements localStatelessBeanLocal {
+public class localStatelessBean implements localStatelessBeanLocal
+{
 
     @PersistenceContext
     private EntityManager em;
-    
-    @Override
-    public Persoon getPersoon(String pUserNaam) {
-        return (Persoon)em.createNamedQuery("Persoon.findByUsername").setParameter("username", pUserNaam).getSingleResult();
-    }
-    
-    @Override
-    public Klant getKlant(Persoon persoon) {
-        return (Klant)em.createNamedQuery("Klant.findByPnr").setParameter("pnr", persoon.getPnr()).getSingleResult();
-    }
-    
-    @Override
-    public Werknemer getWerknemer(Persoon persoon){
-        return (Werknemer)em.createNamedQuery("Werknemer.findByPnr").setParameter("pnr", persoon.getPnr()).getSingleResult();
-    }
 
     @Override
-    public Filiaal getFiliaal(Klant klant)
+    public Persoon getPersoon(String pUserNaam)
     {
-        return (Filiaal)em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", klant.getFnr()).getSingleResult();
+        return (Persoon)em.createNamedQuery("Persoon.findByUsername").setParameter("username", pUserNaam).getSingleResult();
     }
 }

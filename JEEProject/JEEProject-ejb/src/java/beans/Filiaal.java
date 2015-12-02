@@ -1,37 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package beans;
 
-import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.*;
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
- * @author student
+ * @author Roy Scheerens
  */
 @Entity
 @Table(name = "Filiaal")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Filiaal.findAll", query = "SELECT f FROM Filiaal f"),
     @NamedQuery(name = "Filiaal.findByFnr", query = "SELECT f FROM Filiaal f WHERE f.fnr = :fnr"),
-    @NamedQuery(name = "Filiaal.findByFnaam", query = "SELECT f FROM Filiaal f WHERE f.fnaam = :fnaam")})
-public class Filiaal implements Serializable {
+    @NamedQuery(name = "Filiaal.findByFnaam", query = "SELECT f FROM Filiaal f WHERE f.fnaam = :fnaam")
+})
+public class Filiaal implements Serializable
+{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,57 +32,95 @@ public class Filiaal implements Serializable {
     @Size(min = 1, max = 256)
     @Column(name = "fnaam")
     private String fnaam;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fnr")
+    private List<Klant> klantList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fnr")
+    private List<Werknemer> werknemerList;
 
-    public Filiaal() {
+    public Filiaal()
+    {
     }
 
-    public Filiaal(Integer fnr) {
+    public Filiaal(Integer fnr)
+    {
         this.fnr = fnr;
     }
 
-    public Filiaal(Integer fnr, String fnaam) {
+    public Filiaal(Integer fnr, String fnaam)
+    {
         this.fnr = fnr;
         this.fnaam = fnaam;
     }
 
-    public Integer getFnr() {
+    public Integer getFnr()
+    {
         return fnr;
     }
 
-    public void setFnr(Integer fnr) {
+    public void setFnr(Integer fnr)
+    {
         this.fnr = fnr;
     }
 
-    public String getFnaam() {
+    public String getFnaam()
+    {
         return fnaam;
     }
 
-    public void setFnaam(String fnaam) {
+    public void setFnaam(String fnaam)
+    {
         this.fnaam = fnaam;
     }
 
+    @XmlTransient
+    public List<Klant> getKlantList()
+    {
+        return klantList;
+    }
+
+    public void setKlantList(List<Klant> klantList)
+    {
+        this.klantList = klantList;
+    }
+
+    @XmlTransient
+    public List<Werknemer> getWerknemerList()
+    {
+        return werknemerList;
+    }
+
+    public void setWerknemerList(List<Werknemer> werknemerList)
+    {
+        this.werknemerList = werknemerList;
+    }
+
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (fnr != null ? fnr.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Filiaal)) {
+        if (!(object instanceof Filiaal))
+        {
             return false;
         }
-        Filiaal other = (Filiaal) object;
-        if ((this.fnr == null && other.fnr != null) || (this.fnr != null && !this.fnr.equals(other.fnr))) {
+        Filiaal other = (Filiaal)object;
+        if ((this.fnr == null && other.fnr != null) || (this.fnr != null && !this.fnr.equals(other.fnr)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "beans.Filiaal[ fnr=" + fnr + " ]";
     }
     

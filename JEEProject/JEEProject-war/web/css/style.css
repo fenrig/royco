@@ -33,3 +33,17 @@ and open the template in the editor.
 {
     float: right;
 }
+
+table, thead > tr {
+    background-color: lightgray;
+}
+thead > tr {
+    font-weight: bold;
+}
+tbody > tr {
+    background-color: white;
+}
+td {
+    width: 150px;
+    text-align: center;
+}

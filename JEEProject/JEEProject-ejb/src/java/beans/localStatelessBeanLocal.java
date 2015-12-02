@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package beans;
 
-import java.math.BigDecimal;
+import java.util.*;
 import javax.ejb.Local;
 
 /**
@@ -14,10 +13,7 @@ import javax.ejb.Local;
  * @author student
  */
 @Local
-public interface localStatelessBeanLocal {
-
+public interface localStatelessBeanLocal
+{
     public Persoon getPersoon(String pUserNaam);
-    public Klant getKlant(Persoon persoon);
-    public Werknemer getWerknemer(Persoon persoon);
-    public Filiaal getFiliaal(Klant klant);
 }

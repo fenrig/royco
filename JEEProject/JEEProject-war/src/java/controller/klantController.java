@@ -10,6 +10,7 @@ import beans.*;
 import static controller.controller.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.*;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -37,12 +38,12 @@ public class klantController extends HttpServlet {
         HttpSession session = request.getSession();
         
         Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-        Klant klant = localBean.getKlant(persoon);
-        Filiaal filiaal = localBean.getFiliaal(klant);
+        Klant klant = persoon.getKlant(); //zou oneToOne moeten zijn
+        List leningen = klant.getLeningList();
         
-        session.setAttribute("klant", klant);
         session.setAttribute("persoon", persoon);
-        session.setAttribute("filiaal", filiaal);
+        session.setAttribute("klant", klant);
+        session.setAttribute("leningen", leningen);
         
         forwardPage("klant.jsp", request, response);
     }

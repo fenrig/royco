@@ -44,7 +44,7 @@ public class bankController extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-            Werknemer werknemer = localBean.getWerknemer(persoon);
+            Werknemer werknemer = persoon.getWerknemer();
             
             out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
             out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPvoornaam() + "</h1>");

@@ -1,39 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package beans;
 
-import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.*;
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
- * @author student
+ * @author Roy Scheerens
  */
 @Entity
 @Table(name = "Adres")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(
+{
     @NamedQuery(name = "Adres.findAll", query = "SELECT a FROM Adres a"),
     @NamedQuery(name = "Adres.findByAnr", query = "SELECT a FROM Adres a WHERE a.anr = :anr"),
     @NamedQuery(name = "Adres.findByStraatnaam", query = "SELECT a FROM Adres a WHERE a.straatnaam = :straatnaam"),
     @NamedQuery(name = "Adres.findByStraatnr", query = "SELECT a FROM Adres a WHERE a.straatnr = :straatnr"),
-    @NamedQuery(name = "Adres.findByPostcode", query = "SELECT a FROM Adres a WHERE a.postcode = :postcode")})
-public class Adres implements Serializable {
+    @NamedQuery(name = "Adres.findByPostcode", query = "SELECT a FROM Adres a WHERE a.postcode = :postcode")
+})
+public class Adres implements Serializable
+{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,75 +43,117 @@ public class Adres implements Serializable {
     @NotNull
     @Column(name = "postcode")
     private int postcode;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "anr")
+    private List<Klant> klantList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "anr")
+    private List<Lening> leningList;
 
-    public Adres() {
+    public Adres()
+    {
     }
 
-    public Adres(Integer anr) {
+    public Adres(Integer anr)
+    {
         this.anr = anr;
     }
 
-    public Adres(Integer anr, String straatnaam, String straatnr, int postcode) {
+    public Adres(Integer anr, String straatnaam, String straatnr, int postcode)
+    {
         this.anr = anr;
         this.straatnaam = straatnaam;
         this.straatnr = straatnr;
         this.postcode = postcode;
     }
 
-    public Integer getAnr() {
+    public Integer getAnr()
+    {
         return anr;
     }
 
-    public void setAnr(Integer anr) {
+    public void setAnr(Integer anr)
+    {
         this.anr = anr;
     }
 
-    public String getStraatnaam() {
+    public String getStraatnaam()
+    {
         return straatnaam;
     }
 
-    public void setStraatnaam(String straatnaam) {
+    public void setStraatnaam(String straatnaam)
+    {
         this.straatnaam = straatnaam;
     }
 
-    public String getStraatnr() {
+    public String getStraatnr()
+    {
         return straatnr;
     }
 
-    public void setStraatnr(String straatnr) {
+    public void setStraatnr(String straatnr)
+    {
         this.straatnr = straatnr;
     }
 
-    public int getPostcode() {
+    public int getPostcode()
+    {
         return postcode;
     }
 
-    public void setPostcode(int postcode) {
+    public void setPostcode(int postcode)
+    {
         this.postcode = postcode;
     }
 
+    @XmlTransient
+    public List<Klant> getKlantList()
+    {
+        return klantList;
+    }
+
+    public void setKlantList(List<Klant> klantList)
+    {
+        this.klantList = klantList;
+    }
+
+    @XmlTransient
+    public List<Lening> getLeningList()
+    {
+        return leningList;
+    }
+
+    public void setLeningList(List<Lening> leningList)
+    {
+        this.leningList = leningList;
+    }
+
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (anr != null ? anr.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Adres)) {
+        if (!(object instanceof Adres))
+        {
             return false;
         }
-        Adres other = (Adres) object;
-        if ((this.anr == null && other.anr != null) || (this.anr != null && !this.anr.equals(other.anr))) {
+        Adres other = (Adres)object;
+        if ((this.anr == null && other.anr != null) || (this.anr != null && !this.anr.equals(other.anr)))
+        {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "beans.Adres[ anr=" + anr + " ]";
     }
     
