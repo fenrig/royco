@@ -8,6 +8,10 @@
         <servlet-name>klantController</servlet-name>
         <servlet-class>controller.klantController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bankController</servlet-name>
+        <servlet-class>controller.bankController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controller</servlet-name>
         <url-pattern>/controller</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>klantController</servlet-name>
         <url-pattern>/klantController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bankController</servlet-name>
+        <url-pattern>/bankController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -42,7 +50,7 @@
         <web-resource-collection>
             <web-resource-name>WerknemerConstraint</web-resource-name>
             <description/>
-            <url-pattern>/werknemer.jsp</url-pattern>
+            <url-pattern>/bankController</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>alleen werknemers</description>

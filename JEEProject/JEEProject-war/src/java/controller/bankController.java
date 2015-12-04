@@ -47,7 +47,7 @@ public class bankController extends HttpServlet {
             Werknemer werknemer = persoon.getWerknemer();
             
             out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPvoornaam() + "</h1>");
+            out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPachternaam() + "</h1>");
             out.println("<h1>Uw werknemernummer is " + werknemer.getWnr() + "</h1>");
             
             out.println("</body>");
