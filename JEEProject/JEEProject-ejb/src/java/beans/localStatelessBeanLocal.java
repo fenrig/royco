@@ -16,4 +16,5 @@ import javax.ejb.Local;
 public interface localStatelessBeanLocal
 {
     public Persoon getPersoon(String pUserNaam);
+    public List<Klant> getLeningenByFnr();
 }

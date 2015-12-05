@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@ include file="WEB-INF/jspf/header.jspf" %>
+        <%@ include file="WEB-INF/jspf/header_common.jspf" %>
         <h1>Error!</h1>
         <p>De ingevoerde gegevens zijn incorrect</p>
         <a href="login.jsp">Probeer nog eens</a>

@@ -16,7 +16,7 @@
         <%
             session.invalidate();
         %>
-        <%@ include file="WEB-INF/jspf/header.jspf" %>
+        <%@ include file="WEB-INF/jspf/header_common.jspf" %>
         <h1>Je bent nu uitgelogd</h1>
         <br />
         <a href="index.jsp">Ga terug naar hoofdpagina</a>

@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,5 +24,22 @@ public class localStatelessBean implements localStatelessBeanLocal
     public Persoon getPersoon(String pUserNaam)
     {
         return (Persoon)em.createNamedQuery("Persoon.findByUsername").setParameter("username", pUserNaam).getSingleResult();
+    }
+    
+    @Override
+    public List<Klant> getLeningenByFnr(){
+        List<Lening> leningenLijst;
+        Persoon pers;
+        Filiaal filObject = (Filiaal) em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", 1).getSingleResult();
+        List<Klant> ret = (List)em.createNamedQuery("Klant.findByFnr").setParameter("fnr", filObject).getResultList();
+   
+        for(Klant kI : ret){
+           leningenLijst = (List)em.createNamedQuery("Lening.findByKnr").setParameter("knr", kI).getResultList();
+           kI.setLeningList(leningenLijst);
+//           pers = (Persoon) em.createNamedQuery("Persoon.findByPnr").setParameter("pnr", kI.getPnr()).getSingleResult();
+//           kI.setPnr(pers);
+         }
+       
+        return ret;
     }
 }

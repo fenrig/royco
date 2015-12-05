@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,26 +36,18 @@ public class bankController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet bankController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-            Werknemer werknemer = persoon.getWerknemer();
-            
-            out.println("<h1>Servlet klantController at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Hallo " + persoon.getPvoornaam() + " " + persoon.getPachternaam() + "</h1>");
-            out.println("<h1>Uw werknemernummer is " + werknemer.getWnr() + "</h1>");
-            
-            out.println("</body>");
-            out.println("</html>");
-        }
+        HttpSession session = request.getSession();
+        
+        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
+        
+        session.setAttribute("filiaalLeningen", localBean.getLeningenByFnr());
+        forwardPage("filiaalRekeningen.jsp", request, response);
     }
-
+    
+    public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

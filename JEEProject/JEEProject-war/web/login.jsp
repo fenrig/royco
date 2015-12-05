@@ -14,7 +14,7 @@
         <title>Login</title>
     </head>
     <body>
-        <%@ include file="WEB-INF/jspf/header.jspf" %>
+        <%@ include file="WEB-INF/jspf/header_common.jspf" %>
         <h1>Welkom</h1>
         <form method=post action="<c:url value="j_security_check" />">
             <table>

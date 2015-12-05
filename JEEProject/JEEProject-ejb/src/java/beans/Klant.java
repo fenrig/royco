@@ -15,7 +15,8 @@ import javax.xml.bind.annotation.*;
 @NamedQueries(
 {
     @NamedQuery(name = "Klant.findAll", query = "SELECT k FROM Klant k"),
-    @NamedQuery(name = "Klant.findByKnr", query = "SELECT k FROM Klant k WHERE k.knr = :knr")
+    @NamedQuery(name = "Klant.findByKnr", query = "SELECT k FROM Klant k WHERE k.knr = :knr"),
+    @NamedQuery(name = "Klant.findByFnr", query = "SELECT k FROM Klant k WHERE k.fnr = :fnr")
 })
 public class Klant implements Serializable
 {

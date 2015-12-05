@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="header">
-    <div class="logo floatLeft"><a href="index.jsp"><img class="logo" src="images/logo.jpg" /></a></div>
+    <%@ include file="header_left.jspf" %>
     <div class="account floatRight">
         <a href="logout.jsp">Logout</a>
     </div>

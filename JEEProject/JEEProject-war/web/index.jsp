@@ -14,7 +14,7 @@
         <title>JSP Page (index)</title>
     </head>
     <body>
-        <%@ include file="WEB-INF/jspf/header.jspf" %>
+        <%@ include file="WEB-INF/jspf/header_common.jspf" %>
         <h1>Welkom by Royco Bank!</h1>
 
         <div class="flexHorz">
