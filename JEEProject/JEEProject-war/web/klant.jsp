@@ -19,7 +19,7 @@
         <p>Welkom bij ${sessionScope.persoon.klant.fnr.fnaam}, uw klantenummer is: ${sessionScope.persoon.klant.knr}</p>
 
         <h2>Uw leningen</h2>
-        <table>
+        <table class="leningenTable">
             <thead>
                 <tr>
                     <th>Nummer</th>

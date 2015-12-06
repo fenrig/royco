@@ -157,4 +157,9 @@ public class Adres implements Serializable
         return "beans.Adres[ anr=" + anr + " ]";
     }
     
+    public String print(){
+        String ret = Integer.toString(this.postcode) + " " + this.straatnaam + " " + this.straatnr;
+        return ret;
+    }
+    
 }

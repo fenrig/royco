@@ -1,7 +1,5 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<div>
-    <div id="headerlogo">
+<div id="headerlogo">
          <img src="images/royco_logo.jpg" alt="Royco" style="width:106px;height:106px;" />
-    </div>
 </div>

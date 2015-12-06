@@ -523,7 +523,7 @@
       <property name="org.glassfish.ejb.startup.keepstate" value="true"></property>
       <property name="isComposite" value="true"></property>
       <property name="appLocation" value="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="94984284553281536"></property>
+      <property name="org.glassfish.ejb.container.application_unique_id" value="94989070242611200"></property>
       <property name="defaultAppName" value="JEEProject"></property>
       <property name="keepSessions" value="true"></property>
       <module name="JEEProject-war.war">

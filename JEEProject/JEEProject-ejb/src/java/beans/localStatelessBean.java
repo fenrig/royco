@@ -33,12 +33,13 @@ public class localStatelessBean implements localStatelessBeanLocal
         Filiaal filObject = (Filiaal) em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", 1).getSingleResult();
         List<Klant> ret = (List)em.createNamedQuery("Klant.findByFnr").setParameter("fnr", filObject).getResultList();
    
-        for(Klant kI : ret){
+/*        for(Klant kI : ret){
            leningenLijst = (List)em.createNamedQuery("Lening.findByKnr").setParameter("knr", kI).getResultList();
            kI.setLeningList(leningenLijst);
 //           pers = (Persoon) em.createNamedQuery("Persoon.findByPnr").setParameter("pnr", kI.getPnr()).getSingleResult();
 //           kI.setPnr(pers);
          }
+*/
        
         return ret;
     }

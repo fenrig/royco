@@ -34,7 +34,17 @@ and open the template in the editor.
     float: right;
 }
 
-table, thead > tr {
+div#headerlogo {
+    width: 106px;
+    float: left;
+}
+
+div.accountView {
+    top: 10px;
+    float: right;
+}
+
+table.leningenTable, table.leningenTable thead > tr {
     background-color: lightgray;
 }
 thead > tr {

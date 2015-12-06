@@ -40,7 +40,7 @@ public class bankController extends HttpServlet {
         
         session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
         
-        session.setAttribute("filiaalLeningen", localBean.getLeningenByFnr());
+        request.setAttribute("filiaalLeningen", localBean.getLeningenByFnr());
         forwardPage("filiaalRekeningen.jsp", request, response);
     }
     
