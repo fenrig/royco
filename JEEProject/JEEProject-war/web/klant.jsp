@@ -15,8 +15,8 @@
     </head>
     <body>
         <%@ include file="WEB-INF/jspf/header_klant.jspf" %>
-        <h1>Hello ${sessionScope.klant.persoon.pvoornaam} ${sessionScope.klant.persoon.pachternaam}!</h1>
-        <p>Welkom bij ${sessionScope.klant.fnr.fnaam}, uw klantenummer is: ${sessionScope.klant.knr}</p>
+        <h1>Hello ${sessionScope.persoon.pvoornaam} ${sessionScope.persoon.pachternaam}!</h1>
+        <p>Welkom bij ${sessionScope.persoon.klant.fnr.fnaam}, uw klantenummer is: ${sessionScope.persoon.klant.knr}</p>
 
         <h2>Uw leningen</h2>
         <table class="leningenTable">
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="lening" items="${sessionScope.klant.leningList}">
+                <c:forEach var="lening" items="${sessionScope.persoon.klant.leningList}">
                     <tr>
                         <td>${lening.lnr}</td>
                         <td>${lening.saldo}</td>
