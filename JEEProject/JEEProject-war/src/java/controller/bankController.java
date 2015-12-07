@@ -1,27 +1,18 @@
 package controller;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import beans.*;
+import static controller.controller.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
  * @author fenrig
  */
-public class bankController extends HttpServlet {
-
+public class bankController extends HttpServlet
+{
     @EJB
     private localStatelessBeanLocal localBean;
 
@@ -34,19 +25,16 @@ public class bankController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
-        
+
         forwardPage("filiaalRekeningen.jsp", request, response);
     }
-    
-    public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
-    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -58,7 +46,8 @@ public class bankController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -72,7 +61,8 @@ public class bankController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -82,7 +72,8 @@ public class bankController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 

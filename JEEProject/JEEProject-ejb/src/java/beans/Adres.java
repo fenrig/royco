@@ -154,12 +154,11 @@ public class Adres implements Serializable
     @Override
     public String toString()
     {
-        return "beans.Adres[ anr=" + anr + " ]";
+        return Integer.toString(this.postcode) + " " + this.straatnaam + " " + this.straatnr;
     }
     
     public String print(){
-        String ret = Integer.toString(this.postcode) + " " + this.straatnaam + " " + this.straatnr;
-        return ret;
+        return toString();
     }
     
 }

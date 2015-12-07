@@ -1,31 +1,23 @@
 package controller;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import beans.*;
 import static controller.controller.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
 import javax.ejb.EJB;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.*;
 
 /**
  *
- * @author student
+ * @author Roy Scheerens
  */
-public class klantController extends HttpServlet {
-
+public class klantController extends HttpServlet
+{
     @EJB
     private localStatelessBeanLocal localBean;
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods. s
      *
      * @param request servlet request
      * @param response servlet response
@@ -33,12 +25,13 @@ public class klantController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
-        
+
         forwardPage("klant.jsp", request, response);
     }
 
@@ -53,7 +46,8 @@ public class klantController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -67,7 +61,8 @@ public class klantController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -77,7 +72,8 @@ public class klantController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 
