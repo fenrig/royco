@@ -14,7 +14,15 @@
     </head>
     <body>
         <%
-            session.invalidate();
+            try
+            {
+                session.invalidate();
+            }
+            catch (Exception ex)
+            {
+                //al uitgelogd?
+                
+            }
         %>
         <%@ include file="WEB-INF/jspf/header_common.jspf" %>
         <h1>Je bent nu uitgelogd</h1>

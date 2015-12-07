@@ -2,4 +2,5 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="header">
     <%@ include file="header_left.jspf" %>
+    <%@ include file="accountViewHeader.jspf" %>
 </div>
