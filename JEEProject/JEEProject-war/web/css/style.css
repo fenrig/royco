@@ -99,3 +99,7 @@ td {
     content: "usernaam mag niet leeg zijn";
     margin-left: 10px; 
 }
+
+div.generalTableForm td{
+    text-align: right;
+} 

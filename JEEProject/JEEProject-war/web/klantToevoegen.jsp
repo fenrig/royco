@@ -14,6 +14,44 @@
     </head>
     <body>
         <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
-        <h1>Hello World!</h1>
+        <h1>Klant toevoegen</h1>
+        <div id="klantToevoegen" class="generalTableForm">
+            <form>
+                <table>
+                    <tr>
+                        <td>Straat:</td>
+                        <td><input type="text" name="straatnaam" /></td>
+                    </tr>
+                    <tr>
+                        <td>Straatnr:</td>
+                        <td><input type="text" name="straatnr" /></td>
+                    </tr>
+                    <tr>
+                        <td>Postcode:</td>
+                        <td><input type="text" name="postcode" /></td>
+                    </tr>
+                    <tr>
+                        <td>Voornaam:</td>
+                        <td><input type="text" name="pvoornaam" /></td>
+                    </tr>
+                    <tr>
+                        <td>Achternaam:</td>
+                        <td><input type="text" name="pachternaam" /></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="userpass" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>DEFAULT PASS POLICY</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" style="width: 100%;" value="Toevoegen"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>
