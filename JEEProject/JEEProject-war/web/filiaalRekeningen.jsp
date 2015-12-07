@@ -29,7 +29,7 @@
         <hr />
         <%
             // TODO: view zou niet op bankController moeten steunen, uitzoeken hoe
-            DecimalFormat df = new DecimalFormat("###.00");
+            DecimalFormat df = new DecimalFormat("#,###.00");
             DecimalFormat perc = new DecimalFormat("#.##");
 
             Persoon persoon = (Persoon)session.getAttribute("persoon");
