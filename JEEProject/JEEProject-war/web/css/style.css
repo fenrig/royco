@@ -42,6 +42,31 @@ div#headerlogo {
 div.accountView {
     top: 10px;
     float: right;
+    text-align: right;
+}
+
+div.accountLogin {
+    margin: 0 auto;
+    width: 350px;
+    border-radius: 25px;
+    padding: 20px;
+    background: #73AD21;
+}
+
+div#header_center {
+    float: right;
+    margin-right: 50px;
+}
+
+div#header_center div{
+    float: left;
+    margin-right: 15px;
+}
+
+div.accountLogin td{
+    text-align: right;
+    background: #73AD21;
+    width: 100px;
 }
 
 table.leningenTable, table.leningenTable thead > tr {

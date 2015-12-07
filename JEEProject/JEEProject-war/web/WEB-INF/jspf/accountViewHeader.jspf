@@ -1,6 +1,29 @@
 <%-- any content can be specified here e.g.: --%>
+<%@page import="beans.Filiaal"%>
+<%@page import="beans.Werknemer"%>
+<%@page import="beans.Persoon"%>
+<%@page import="beans.Klant"%>
+
 <%@ page pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="accountView">
-    
+    ${sessionScope.persoon.pachternaam} ${sessionScope.persoon.pvoornaam} <br />
+        <%
+            
+            Persoon pers = (Persoon)request.getSession().getAttribute("persoon");
+            Werknemer werk = pers.getWerknemer();
+            Klant kla = pers.getKlant();
+            if(werk != null){
+                Filiaal fil = werk.getFnr();
+                out.print(fil.getFnaam());
+            }else if(kla != null){
+                Filiaal fil = kla.getFnr();
+                out.print(fil.getFnaam());
+            }else{
+                out.print("Fout: u hoort bij geen filiaal");
+            }            
+            
+        %>
+    <br />
     <a href="logout.jsp">Logout</a>
 </div>

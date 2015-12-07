@@ -1,5 +1,7 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <div id="headerlogo">
+    <a href="index.jsp">
          <img src="images/royco_logo.jpg" alt="Royco" style="width:106px;height:106px;" />
+    </a>
 </div>
