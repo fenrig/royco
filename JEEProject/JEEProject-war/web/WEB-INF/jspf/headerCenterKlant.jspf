@@ -1,0 +1,10 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div id="header_center">
+    <div>
+        <a href="klantGegevens.jsp">Uw Gegevens Aanpassen</a>
+    </div>
+    <div>
+        <a href="klantLeningen.jsp">Uw Leningen Bekijken</a>
+    </div>
+</div>

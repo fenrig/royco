@@ -4,4 +4,5 @@
 <div class="header">
     <%@ include file="header_left.jspf" %>
     <%@ include file="accountViewHeader.jspf" %>
+    <%@ include file="headerCenterKlant.jspf" %>
 </div>

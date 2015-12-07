@@ -7,9 +7,11 @@ package beans;
 
 import java.util.*;
 import java.util.List;
+import javax.annotation.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.*;
 
 /**
  *
@@ -26,23 +28,41 @@ public class localStatelessBean implements localStatelessBeanLocal
     {
         return (Persoon)em.createNamedQuery("Persoon.findByUsername").setParameter("username", pUserNaam).getSingleResult();
     }
-    
+
     @Override
-    public List<Klant> getLeningenByFnr(){
+    public List<Klant> getLeningenByFnr()
+    {
         List<Lening> leningenLijst;
         Persoon pers;
-        Filiaal filObject = (Filiaal) em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", 1).getSingleResult();
+        Filiaal filObject = (Filiaal)em.createNamedQuery("Filiaal.findByFnr").setParameter("fnr", 1).getSingleResult();
         List<Klant> ret = (List)em.createNamedQuery("Klant.findByFnr").setParameter("fnr", filObject).getResultList();
         //^^dit is niet nodig, gebruik: pers.getWerknemer().getFnr().getKlantList();
-        
-/*        for(Klant kI : ret){
-           leningenLijst = (List)em.createNamedQuery("Lening.findByKnr").setParameter("knr", kI).getResultList();
-           kI.setLeningList(leningenLijst);
-//           pers = (Persoon) em.createNamedQuery("Persoon.findByPnr").setParameter("pnr", kI.getPnr()).getSingleResult();
-//           kI.setPnr(pers);
+
+        /*        for(Klant kI : ret){
+         leningenLijst = (List)em.createNamedQuery("Lening.findByKnr").setParameter("knr", kI).getResultList();
+         kI.setLeningList(leningenLijst);
+         //           pers = (Persoon) em.createNamedQuery("Persoon.findByPnr").setParameter("pnr", kI.getPnr()).getSingleResult();
+         //           kI.setPnr(pers);
          }
-*/
-       
+         */
         return ret;
     }
+
+    @Override
+    public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam)
+    {
+        em.createNamedQuery("Persoon.update").setParameter("pachternaam", achternaam).setParameter("pvoornaam", voornaam).setParameter("pnr", persoon.getPnr()).executeUpdate();
+        persoon.setPachternaam(achternaam);
+        persoon.setPvoornaam(voornaam);
+    }
+
+    @Override
+    public void VeranderKlantPass(Persoon persoon, String password)
+    {
+        if (!password.isEmpty())
+        {
+            em.createNamedQuery("Persoon.updatePass").setParameter("userpass", password).setParameter("pnr", persoon.getPnr()).executeUpdate();
+        }
+    }
+
 }

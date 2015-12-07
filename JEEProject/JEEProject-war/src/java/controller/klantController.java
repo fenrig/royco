@@ -15,7 +15,7 @@ public class klantController extends HttpServlet
 {
     @EJB
     private localStatelessBeanLocal localBean;
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods. s
      *
@@ -29,10 +29,19 @@ public class klantController extends HttpServlet
     {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        
+        String state = request.getParameter("state");
+        state = (state == null) ? "" : state;
 
-        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
+        Persoon persoon = localBean.getPersoon(request.getRemoteUser());
+        session.setAttribute("persoon", persoon);
 
-        forwardPage("klant.jsp", request, response);
+        if (state.equals("gegevensAanpassing"))
+        {
+            localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam"));
+        }
+        
+        forwardPage("klantLeningen.jsp", request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

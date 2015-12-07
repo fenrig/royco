@@ -17,4 +17,6 @@ public interface localStatelessBeanLocal
 {
     public Persoon getPersoon(String pUserNaam);
     public List<Klant> getLeningenByFnr();
+    public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam);
+    public void VeranderKlantPass(Persoon persoon, String password);
 }

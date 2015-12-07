@@ -22,7 +22,7 @@
                     <table>
                         <tr><td>Naam: </td><td><input type="text" name="j_username" /></td></tr>
                         <tr><td>Paswoord: </td><td><input type="password" name="j_password" /><input type="hidden" name="state" value="loggedIn"></td></tr>
-                        <tr><td colspan="2"><input type="submit" style="width: 100%;"/></td></tr>
+                        <tr><td colspan="2"><input type="submit" value="Login" style="width: 100%;"/></td></tr>
                     </table>
                     
                 </form>

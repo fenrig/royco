@@ -82,3 +82,20 @@ td {
     width: 150px;
     text-align: center;
 }
+.emptyPass::after
+{
+    content: "wachtwoord mag niet leeg zijn";
+    margin-left: 10px; 
+}
+
+.differentPass::after
+{
+    content: "wachtwoord komt niet overeen";
+    margin-left: 10px; 
+}
+
+.invalidName::after
+{
+    content: "usernaam mag niet leeg zijn";
+    margin-left: 10px; 
+}
