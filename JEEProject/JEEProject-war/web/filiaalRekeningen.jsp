@@ -28,7 +28,6 @@
         <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
         <hr />
         <%
-            // TODO: view zou niet op bankController moeten steunen, uitzoeken hoe
             DecimalFormat df = new DecimalFormat("#,###.00");
             DecimalFormat perc = new DecimalFormat("#.##");
 

@@ -19,4 +19,7 @@ public interface localStatelessBeanLocal
     public List<Klant> getLeningenByFnr();
     public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam);
     public void VeranderKlantPass(Persoon persoon, String password);
+    public Adres addAdres(Adres adr);
+    public Persoon addPersoon(Persoon pers);
+    public Klant addKlant(Klant klant);
 }

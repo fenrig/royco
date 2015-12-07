@@ -3,9 +3,13 @@ package controller;
 import beans.*;
 import static controller.controller.*;
 import java.io.IOException;
+import java.util.Iterator;
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 /**
  *
@@ -63,7 +67,49 @@ public class bankController extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        processRequest(request, response);
+//        processRequest(request, response);
+       // request.getParameter("firstName");
+        switch(request.getParameter("postOrigin")){
+            case "klantToevoegen.jsp":
+                klantToevoegen(request, response);
+                break;
+            default:
+                forwardPage("ErrorPagina.jsp", request, response);
+                break;
+        }
+    }
+    
+    protected void klantToevoegen(HttpServletRequest request, HttpServletResponse response){
+        Adres adr = new Adres();
+        String straatnaam = request.getParameter("straatnaam");
+        String straatnr = request.getParameter("straatnr");
+        int postcode = Integer.decode(request.getParameter("postcode"));
+        // TODO: validatie in het model steken + validatie trachten te integreren
+        adr.setStraatnaam(straatnaam);
+        adr.setStraatnr(straatnr);
+        adr.setPostcode(postcode);
+        this.localBean.addAdres(adr);
+        //-----------------
+        Persoon pers = new Persoon();
+        String pvoornaam = request.getParameter("pvoornaam");
+        String pachternaam = request.getParameter("pachternaam");
+        String username = request.getParameter("username");
+        String userpass = "default";
+        String usergroup = "klant";
+        
+        pers.setPvoornaam(pvoornaam);
+        pers.setPachternaam(pachternaam);
+        pers.setUsername(username);
+        pers.setUserpass(userpass);
+        pers.setUsergroup(usergroup);
+        this.localBean.addPersoon(pers);
+        
+        //-------------------
+        Klant klant = new Klant();
+        klant.setAnr(adr);
+        klant.setPnr(pers);
+        klant.setFnr(((Persoon) request.getSession().getAttribute("persoon")).getWerknemer().getFnr());
+        this.localBean.addKlant(klant);
     }
 
     /**

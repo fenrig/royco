@@ -16,7 +16,7 @@
         <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
         <h1>Klant toevoegen</h1>
         <div id="klantToevoegen" class="generalTableForm">
-            <form>
+            <form method="POST" action="bankController">
                 <table>
                     <tr>
                         <td>Straat:</td>
@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>Username:</td>
-                        <td><input type="text" name="userpass" /></td>
+                        <td><input type="text" name="username" /></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
@@ -51,6 +51,7 @@
                         <td><input type="submit" style="width: 100%;" value="Toevoegen"/></td>
                     </tr>
                 </table>
+                <input type="hidden" name="postOrigin" value="klantToevoegen.jsp" />
             </form>
         </div>
     </body>

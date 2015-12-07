@@ -64,5 +64,23 @@ public class localStatelessBean implements localStatelessBeanLocal
             em.createNamedQuery("Persoon.updatePass").setParameter("userpass", password).setParameter("pnr", persoon.getPnr()).executeUpdate();
         }
     }
+    
+    @Override
+    public Adres addAdres(Adres adr){
+        em.persist(adr);
+        return adr;
+    }
+    
+    @Override
+    public Persoon addPersoon(Persoon pers){
+        em.persist(pers);
+        return pers;
+    }
+    
+    @Override
+    public Klant addKlant(Klant klant){
+        em.persist(klant);
+        return klant;
+    }
 
 }
