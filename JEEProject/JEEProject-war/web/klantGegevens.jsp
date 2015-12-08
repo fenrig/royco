@@ -20,6 +20,9 @@
             <table>
                 <tr><td><label for="pvoornaam">Voornaam</label></td><td><input type="text" value="${sessionScope.persoon.pvoornaam}" name="pvoornaam" /></td></tr>
                 <tr><td><label for="pachternaam">Achternaam</label></td><td><input type="text" value="${sessionScope.persoon.pachternaam}" name="pachternaam" /></td></tr>
+                <tr><td><label for="straatnaam">Straat</label></td><td><input type="text" value="${sessionScope.persoon.klant.anr.straatnaam}" name="straatnaam" /></td></tr>
+                <tr><td><label for="straatnummer">Straat Nummer</label></td><td><input type="text" value="${sessionScope.persoon.klant.anr.straatnr}" name="straatnummer" /></td></tr>
+                <tr><td><label for="postcode">Postcode</label></td><td><input type="text" value="${sessionScope.persoon.klant.anr.postcode}" name="postcode" /></td></tr>
             </table>
             <input type="hidden" value="gegevensAanpassing" name="state" /><input type="submit" value="Wijzig Gegevens" />
             <br /><br />TODO: adres aanpassen

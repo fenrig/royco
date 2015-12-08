@@ -38,7 +38,7 @@ public class klantController extends HttpServlet
 
         if (state.equals("gegevensAanpassing"))
         {
-            localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam"));
+            localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam")); //TODO: add adres to db
         }
         
         forwardPage("klantLeningen.jsp", request, response);
