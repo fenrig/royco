@@ -38,24 +38,8 @@ public class bankController extends HttpServlet
 
         forwardPage("filiaalRekeningen.jsp", request, response);
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
-        processRequest(request, response);
-    }
-
-    /**
+    
+     /**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -79,16 +63,34 @@ public class bankController extends HttpServlet
         }
     }
     
-    protected void klantToevoegen(HttpServletRequest request, HttpServletResponse response){
+    protected void klantToevoegen(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException
+    {
         Adres adr = new Adres();
         String straatnaam = request.getParameter("straatnaam");
         String straatnr = request.getParameter("straatnr");
-        int postcode = Integer.decode(request.getParameter("postcode"));
-        // TODO: validatie in het model steken + validatie trachten te integreren
+        int postcode = -9999;
+        try{
+            postcode = Integer.decode(request.getParameter("postcode"));
+        }catch(NumberFormatException e){
+                String emsg = "U heeft postcode verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+        }
         adr.setStraatnaam(straatnaam);
         adr.setStraatnr(straatnr);
         adr.setPostcode(postcode);
-        this.localBean.addAdres(adr);
+        try{
+            this.localBean.addAdres(adr);
+        }catch(validationException e){
+                String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+        }
         //-----------------
         Persoon pers = new Persoon();
         String pvoornaam = request.getParameter("pvoornaam");
@@ -102,14 +104,61 @@ public class bankController extends HttpServlet
         pers.setUsername(username);
         pers.setUserpass(userpass);
         pers.setUsergroup(usergroup);
-        this.localBean.addPersoon(pers);
         
+        try{
+            this.localBean.addPersoon(pers);
+        }catch(validationException e){
+                this.localBean.removeAdres(adr);
+                
+                String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+        }catch(notuniqueException e){
+                this.localBean.removeAdres(adr);
+                
+                String emsg = "De username die u heeft gekozen (" + e.getMessage() + ") is al reeds gebruikt";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+        }
         //-------------------
         Klant klant = new Klant();
         klant.setAnr(adr);
         klant.setPnr(pers);
         klant.setFnr(((Persoon) request.getSession().getAttribute("persoon")).getWerknemer().getFnr());
-        this.localBean.addKlant(klant);
+        
+        try{
+            this.localBean.addKlant(klant);
+        }catch(validationException e){
+                this.localBean.removeAdres(adr);
+                this.localBean.removePersoon(pers);
+                
+                String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+        }
+        
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        processRequest(request, response);
     }
 
     /**

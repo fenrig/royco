@@ -19,7 +19,13 @@ public interface localStatelessBeanLocal
     public List<Klant> getLeningenByFnr();
     public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam);
     public void VeranderKlantPass(Persoon persoon, String password);
-    public Adres addAdres(Adres adr);
-    public Persoon addPersoon(Persoon pers);
-    public Klant addKlant(Klant klant);
+    
+    public Adres addAdres(Adres adr) throws validationException;
+    public void removeAdres(Adres adr);
+    
+    public Persoon addPersoon(Persoon pers) throws validationException, notuniqueException;
+    public void removePersoon(Persoon pers);
+    
+    public Klant addKlant(Klant klant) throws validationException;
+    public void removeKlant(Klant klant);
 }
