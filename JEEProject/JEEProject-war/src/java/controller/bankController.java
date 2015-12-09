@@ -82,6 +82,7 @@ public class bankController extends HttpServlet
         adr.setStraatnaam(straatnaam);
         adr.setStraatnr(straatnr);
         adr.setPostcode(postcode);
+        
         try{
             this.localBean.addAdres(adr);
         }catch(validationException e){
@@ -141,8 +142,7 @@ public class bankController extends HttpServlet
                 request.setAttribute("exception", e);
                 forwardPage("bankError.jsp", request, response);
                 return;
-        }
-        
+        }        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

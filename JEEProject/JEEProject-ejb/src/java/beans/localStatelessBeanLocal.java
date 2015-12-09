@@ -28,4 +28,5 @@ public interface localStatelessBeanLocal
     
     public Klant addKlant(Klant klant) throws validationException;
     public void removeKlant(Klant klant);
+    
 }
