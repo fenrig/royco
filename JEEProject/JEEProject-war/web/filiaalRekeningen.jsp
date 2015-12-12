@@ -38,7 +38,8 @@
   
             for (Klant klant : klanten)
             {
-                out.print(klant.getPnr().getPachternaam() + " " + klant.getPnr().getPvoornaam());
+                out.print("<div class=\"filiaalRekening\"><div class=\"rekeningOverzicht\">");
+                out.print("<a class=\"name\">" + klant.getPnr().getPachternaam() + " " + klant.getPnr().getPvoornaam() + "</a>");
                 out.print("<br />");
                 List<Lening> leningList = klant.getLeningList();
                 if(leningList.isEmpty()){
@@ -78,9 +79,18 @@
                         }
                         out.print("</tr>");
                     }
+                    out.print("</table>");
                 }
-                out.print("</table>");
-                out.print("<hr />");
+%>
+                    </div>
+                    <div class="filiaalActions">
+                         
+                    </div>
+                    <hr style="clear: left" />
+                </div>
+                
+                
+         <%
             }
         %>
     </body>

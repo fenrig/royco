@@ -86,3 +86,22 @@ td {
 div.generalTableForm td{
     text-align: right;
 } 
+
+div.filiaalRekening div.rekeningOverzicht{
+    float: left;
+}
+
+div.filiaalRekening div.filiaalActions{
+    float: right;
+}
+
+div.filiaalRekening{
+    clear: left;
+    width: 100%;
+}
+
+div.filiaalRekening a.name{
+    text-decoration: underline;
+    font-weight: bold;
+    
+}
