@@ -15,16 +15,8 @@ import javax.validation.ConstraintViolationException;
  *
  * @author fenrig
  */
-public class bankController extends HttpServlet
-{
-    @EJB
-    private localStatelessBeanLocal localBean;
-    
-    protected void setSessionPersoon(HttpServletRequest request){
-        HttpSession session = request.getSession();
-
-        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
-    }
+public class bankController extends baseController
+{    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *

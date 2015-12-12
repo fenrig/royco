@@ -11,11 +11,8 @@ import javax.servlet.http.*;
  *
  * @author Roy Scheerens
  */
-public class klantController extends HttpServlet
-{
-    @EJB
-    private localStatelessBeanLocal localBean;
-    
+public class klantController extends baseController
+{    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods. s
      *
@@ -33,8 +30,7 @@ public class klantController extends HttpServlet
         String state = request.getParameter("state");
         state = (state == null) ? "" : state;
 
-        Persoon persoon = localBean.getPersoon(request.getRemoteUser());
-        session.setAttribute("persoon", persoon);
+       Persoon persoon = this.setSessionPersoon(request);
 
         if (state.equals("gegevensAanpassing"))
         {
