@@ -19,7 +19,12 @@ public class bankController extends HttpServlet
 {
     @EJB
     private localStatelessBeanLocal localBean;
+    
+    protected void setSessionPersoon(HttpServletRequest request){
+        HttpSession session = request.getSession();
 
+        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -32,9 +37,7 @@ public class bankController extends HttpServlet
             throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-
-        session.setAttribute("persoon", localBean.getPersoon(request.getRemoteUser()));
+        this.setSessionPersoon(request);
 
         forwardPage("filiaalRekeningen.jsp", request, response);
     }
@@ -142,7 +145,8 @@ public class bankController extends HttpServlet
                 request.setAttribute("exception", e);
                 forwardPage("bankError.jsp", request, response);
                 return;
-        }        
+        }
+        this.setSessionPersoon(request);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
