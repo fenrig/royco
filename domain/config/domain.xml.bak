@@ -86,6 +86,7 @@
   <servers>
     <server config-ref="server-config" name="server">
       <application-ref ref="__admingui" virtual-servers="__asadmin"></application-ref>
+      <application-ref ref="JEEProject" virtual-servers="server"></application-ref>
       <resource-ref ref="jdbc/__TimerPool"></resource-ref>
       <resource-ref ref="jdbc/__default"></resource-ref>
       <resource-ref ref="jdbc/sample"></resource-ref>
@@ -516,5 +517,26 @@
     <secure-admin-principal dn="CN=Roy-PC-instance,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=US"></secure-admin-principal>
   </secure-admin>
   <clusters></clusters>
-  <applications></applications>
+  <applications>
+    <application object-type="user" directory-deployed="true" name="JEEProject" location="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/">
+      <property name="archiveType" value="ear"></property>
+      <property name="isComposite" value="true"></property>
+      <property name="appLocation" value="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/"></property>
+      <property name="org.glassfish.ejb.container.application_unique_id" value="95022676088455168"></property>
+      <property name="defaultAppName" value="JEEProject"></property>
+      <property name="keepSessions" value="true"></property>
+      <module name="JEEProject-war.war">
+        <engine sniffer="security"></engine>
+        <engine sniffer="web"></engine>
+      </module>
+      <module name="JEEProject-ejb.jar">
+        <engine sniffer="ejb"></engine>
+        <engine sniffer="security"></engine>
+        <engine sniffer="weld"></engine>
+        <engine sniffer="jpa"></engine>
+        <property name="org.glassfish.persistence.app_name_property" value="JEEProject"></property>
+      </module>
+      <engine sniffer="ear"></engine>
+    </application>
+  </applications>
 </domain>

@@ -13,6 +13,9 @@ import javax.servlet.http.*;
  */
 public class klantController extends baseController
 {    
+    public klantController(){
+        super("klantLeningen.jsp");
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods. s
      *
@@ -37,7 +40,7 @@ public class klantController extends baseController
             localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam")); //TODO: add adres to db
         }
         
-        forwardPage("klantLeningen.jsp", request, response);
+        this.forwardToDefaultPage(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

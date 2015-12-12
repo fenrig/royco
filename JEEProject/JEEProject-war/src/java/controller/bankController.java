@@ -17,6 +17,9 @@ import javax.validation.ConstraintViolationException;
  */
 public class bankController extends baseController
 {    
+    public bankController(){
+        super("filiaalRekeningen.jsp");
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -31,7 +34,7 @@ public class bankController extends baseController
         response.setContentType("text/html;charset=UTF-8");
         this.setSessionPersoon(request);
 
-        forwardPage("filiaalRekeningen.jsp", request, response);
+         this.forwardToDefaultPage(request, response);
     }
     
      /**
@@ -54,7 +57,7 @@ public class bankController extends baseController
                 break;
             default:
                 forwardPage("ErrorPagina.jsp", request, response);
-                break;
+                return;
         }
     }
     
@@ -139,6 +142,7 @@ public class bankController extends baseController
                 return;
         }
         this.setSessionPersoon(request);
+        this.forwardToDefaultPage(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

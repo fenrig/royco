@@ -24,6 +24,15 @@ public class baseController extends HttpServlet
 {
     @EJB
     protected localStatelessBeanLocal localBean;
+    protected String defaultForwardPage;
+    
+    protected void setDefaultForwardPage(String defaultforwardpage){
+        this.defaultForwardPage = defaultforwardpage;
+    }
+    
+    public baseController(String defaultforwardpage){
+        this.setDefaultForwardPage(defaultforwardpage);
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,6 +44,10 @@ public class baseController extends HttpServlet
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {    
+    }
+    
+    protected void forwardToDefaultPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        this.forwardPage(this.defaultForwardPage, request, response);
     }
 
     public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
