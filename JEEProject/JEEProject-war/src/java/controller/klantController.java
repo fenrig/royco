@@ -3,6 +3,7 @@ package controller;
 import beans.*;
 import static controller.controller.*;
 import java.io.IOException;
+import java.text.*;
 import javax.ejb.EJB;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,10 +13,12 @@ import javax.servlet.http.*;
  * @author Roy Scheerens
  */
 public class klantController extends baseController
-{    
-    public klantController(){
+{
+    public klantController()
+    {
         super("klantLeningen.jsp");
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods. s
      *
@@ -29,17 +32,28 @@ public class klantController extends baseController
     {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         String state = request.getParameter("state");
         state = (state == null) ? "" : state;
 
-       Persoon persoon = this.setSessionPersoon(request);
+        Persoon persoon = this.setSessionPersoon(request);
 
         if (state.equals("gegevensAanpassing"))
         {
-            localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam")); //TODO: add adres to db
+            int postcode;
+            
+            try
+            {
+                postcode = Integer.parseInt(request.getParameter("postcode"));
+            }
+            catch (NumberFormatException ex)
+            {
+                postcode = persoon.getKlant().getAnr().getPostcode();
+            }
+
+            localBean.VeranderKlantGegevens(persoon, request.getParameter("pvoornaam"), request.getParameter("pachternaam"), request.getParameter("straatnaam"), request.getParameter("straatnummer"), postcode);
         }
-        
+
         this.forwardToDefaultPage(request, response);
     }
 

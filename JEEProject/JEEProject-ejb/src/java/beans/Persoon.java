@@ -21,9 +21,7 @@ import javax.xml.bind.annotation.*;
     @NamedQuery(name = "Persoon.findByPachternaam", query = "SELECT p FROM Persoon p WHERE p.pachternaam = :pachternaam"),
     @NamedQuery(name = "Persoon.findByUsername", query = "SELECT p FROM Persoon p WHERE p.username = :username"),
     @NamedQuery(name = "Persoon.findByUserpass", query = "SELECT p FROM Persoon p WHERE p.userpass = :userpass"),
-    @NamedQuery(name = "Persoon.findByUsergroup", query = "SELECT p FROM Persoon p WHERE p.usergroup = :usergroup"),
-    @NamedQuery(name = "Persoon.update", query = "UPDATE Persoon p SET p.pvoornaam = :pvoornaam, p.pachternaam = :pachternaam WHERE p.pnr = :pnr"),
-    @NamedQuery(name = "Persoon.updatePass", query = "UPDATE Persoon p SET p.userpass = :userpass WHERE p.pnr = :pnr")
+    @NamedQuery(name = "Persoon.findByUsergroup", query = "SELECT p FROM Persoon p WHERE p.usergroup = :usergroup")
 })
 public class Persoon implements Serializable
 {

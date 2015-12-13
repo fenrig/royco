@@ -16,10 +16,9 @@ import javax.ejb.Local;
 public interface localStatelessBeanLocal
 {
     public Persoon getPersoon(String pUserNaam);
-    public List<Klant> getLeningenByFnr();
-    public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam);
+    public void VeranderKlantGegevens(Persoon persoon, String voornaam, String achternaam, String straatnaam, String straatnummer, int postcode);
     public void VeranderKlantPass(Persoon persoon, String password);
-    
+          
     public Adres addAdres(Adres adr) throws validationException;
     public void removeAdres(Adres adr);
     
