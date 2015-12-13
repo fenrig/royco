@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.*;
 
@@ -156,6 +157,17 @@ public class localStatelessBean implements localStatelessBeanLocal
     {
         Klant r = em.merge(klant);
         em.remove(r);
+    }
+    
+    @Override
+    public Klant getKlant(int knr){
+        Klant ret;
+        try{
+            ret = (Klant) em.createNamedQuery("Klant.findByKnr").setParameter("knr", knr).getSingleResult();
+        }catch(NoResultException e){
+            ret = null;
+        }
+        return ret;
     }
 
 }

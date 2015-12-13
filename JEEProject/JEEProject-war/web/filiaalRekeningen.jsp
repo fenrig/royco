@@ -84,7 +84,8 @@
 %>
                     </div>
                     <div class="filiaalActions">
-                         
+                        <a href="">Lening Toevoegen</a> <br />
+                        <a href="?a=delUser&knr=<% out.print(klant.getKnr()); %>">Klant verwijderen</a> <br />
                     </div>
                     <hr style="clear: left" />
                 </div>

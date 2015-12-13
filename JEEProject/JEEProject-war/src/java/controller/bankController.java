@@ -145,7 +145,6 @@ public class bankController extends baseController
         this.forwardToDefaultPage(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -158,9 +157,31 @@ public class bankController extends baseController
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        processRequest(request, response);
+        String a = request.getParameter("a");
+        if(a == null){
+            processRequest(request, response);
+        }else{
+            switch(a){
+                case "delUser":
+                    klantVerwijderen(request, response);
+                    break;
+                default:
+                    // TODO: add error
+                    return;
+            }
+        }
+        this.forwardToDefaultPage(request, response);
     }
-
+    
+    private void klantVerwijderen(HttpServletRequest request, HttpServletResponse response){
+        int knr = Integer.decode(request.getParameter("knr"));
+        Klant kla = this.localBean.getKlant(knr);
+        if(kla != null){
+            this.localBean.removeKlant(kla);
+            this.setSessionPersoon(request);
+        }
+    }
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Returns a short description of the servlet.
      *
