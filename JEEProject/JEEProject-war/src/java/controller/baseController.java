@@ -55,7 +55,7 @@ public class baseController extends HttpServlet
         request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
     }
 
-    public static void RedirectPage(String page, HttpServletResponse response) throws ServletException, IOException
+    public static void redirectPage(String page, HttpServletResponse response) throws ServletException, IOException
     {
         response.sendRedirect(response.encodeURL(page));
     }

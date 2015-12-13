@@ -42,26 +42,16 @@ public class controller extends HttpServlet
 
         if (state.equals("klant"))
         {
-            RedirectPage("klantController", response);
+            baseController.redirectPage("klantController", response);
             return;
         }
         else if (state.equals("werknemer"))
         {
-            RedirectPage("bankController", response);
+            baseController.redirectPage("bankController", response);
             return;
         }
 
-        forwardPage("index.jsp", request, response);
-    }
-
-    public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        request.getRequestDispatcher(response.encodeURL(page)).forward(request, response);
-    }
-
-    public static void RedirectPage(String page, HttpServletResponse response) throws ServletException, IOException
-    {
-        response.sendRedirect(response.encodeURL(page));
+        baseController.forwardPage("index.jsp", request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
