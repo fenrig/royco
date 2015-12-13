@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 06, 2015 at 05:25 PM
--- Server version: 5.7.9
+-- Generation Time: Dec 13, 2015 at 07:26 PM
+-- Server version: 5.7.10
 -- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -33,7 +33,35 @@ CREATE TABLE `Adres` (
 
 INSERT INTO `Adres` (`anr`, `straatnaam`, `straatnr`, `postcode`) VALUES
 (0, 'void', 'void', 0),
-(4, 'klantStraat', '19', 1928);
+(4, 'klantStraat', '19', 1928),
+(6, 'Schranslei', '21', 2861),
+(7, 'Schranslei', '21', 2861),
+(8, 'Janpieterdenayerlaan', '15a', 2861),
+(9, 'Janpieterdenayerlaan', '15a', 2861),
+(28, 'Verzonnen', '15', 9999),
+(29, 'iets', 'iets', 1001),
+(30, 'komaan', 'komaan', 1003),
+(31, 'persist', 'persist', 1004),
+(32, 'gvd', 'gvd', 1005),
+(33, 'Jonasstraat', '69', 6969),
+(34, 'Schraanslei', '21', 2861),
+(35, 'Jeejalleswerkt', '666', 6666),
+(36, 'test', '54', 5454),
+(37, 'test', 'test', 2050),
+(40, 'Duivelstraat', '666', 6666),
+(41, 'Satanstraat', '666', 6666),
+(42, 'Duivelstraatx', '666', 6666);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `AdresVeranderingen`
+--
+
+CREATE TABLE `AdresVeranderingen` (
+  `pnr` int(11) NOT NULL,
+  `anr` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -116,8 +144,22 @@ CREATE TABLE `Persoon` (
 
 INSERT INTO `Persoon` (`pnr`, `pvoornaam`, `pachternaam`, `username`, `userpass`, `usergroup`) VALUES
 (1, 'Roy', 'Scheerens', 'roy', 'pass', 'werknemer'),
-(2, 'klant', 'klant', 'klant', 'pass', 'klant'),
-(4, 'Matthias', 'Van Gestel', 'fenrig', 'pass', 'werknemer');
+(2, 'nt8', 'kla8', 'klant', '123', 'klant'),
+(4, 'Matthias', 'Van Gestel', 'fenrig', 'pass', 'werknemer'),
+(5, 'Mich', 'Mexicaan', 'testklant', 'default', 'klant'),
+(9, 'Verzonnen', 'Achterkant', 'fenrig5', 'default', 'klant'),
+(10, 'iets', 'iets', 'iets', 'default', 'klant'),
+(11, 'kom', 'aan', 'komaan', 'default', 'klant'),
+(12, 'persist', 'off', 'persist', 'default', 'klant'),
+(13, 'gvd', 'gvd', 'gvd', 'default', 'klant'),
+(14, 'Jonas', 'Vos', 'jonas', 'default', 'klant'),
+(15, 'Nancy', 'De Clerck', 'nancy', 'default', 'klant'),
+(16, 'Duivel', 'Satan', 'satan', 'default', 'klant'),
+(17, 'Test', 'Tset', 'tset', 'default', 'klant'),
+(18, 'test', 'test', 'test', 'default', 'klant'),
+(20, 'Duivel', 'Satan', 'satanique', 'default', 'klant'),
+(21, 'Satan', 'Duivel', 'duvelke', 'default', 'klant'),
+(22, 'Duvelke', 'Nietechtmaartochwel', 'duvelkes', 'default', 'klant');
 
 -- --------------------------------------------------------
 
@@ -173,7 +215,8 @@ CREATE TABLE `Werknemer` (
 --
 
 INSERT INTO `Werknemer` (`wnr`, `pnr`, `fnr`) VALUES
-(1, 4, 1);
+(1, 4, 1),
+(2, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -184,6 +227,13 @@ INSERT INTO `Werknemer` (`wnr`, `pnr`, `fnr`) VALUES
 --
 ALTER TABLE `Adres`
   ADD PRIMARY KEY (`anr`);
+
+--
+-- Indexes for table `AdresVeranderingen`
+--
+ALTER TABLE `AdresVeranderingen`
+  ADD UNIQUE KEY `anr` (`anr`),
+  ADD UNIQUE KEY `pnr` (`pnr`);
 
 --
 -- Indexes for table `Filiaal`
@@ -247,7 +297,7 @@ ALTER TABLE `Werknemer`
 -- AUTO_INCREMENT for table `Adres`
 --
 ALTER TABLE `Adres`
-  MODIFY `anr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `anr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `Filiaal`
 --
@@ -257,7 +307,7 @@ ALTER TABLE `Filiaal`
 -- AUTO_INCREMENT for table `Klant`
 --
 ALTER TABLE `Klant`
-  MODIFY `knr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `knr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `Lening`
 --
@@ -267,7 +317,7 @@ ALTER TABLE `Lening`
 -- AUTO_INCREMENT for table `Persoon`
 --
 ALTER TABLE `Persoon`
-  MODIFY `pnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `Variabele Lening`
 --
@@ -282,10 +332,17 @@ ALTER TABLE `Vaste Lening`
 -- AUTO_INCREMENT for table `Werknemer`
 --
 ALTER TABLE `Werknemer`
-  MODIFY `wnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `wnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `AdresVeranderingen`
+--
+ALTER TABLE `AdresVeranderingen`
+  ADD CONSTRAINT `AdresVeranderingen_ibfk_1` FOREIGN KEY (`pnr`) REFERENCES `Persoon` (`pnr`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `AdresVeranderingen_ibfk_2` FOREIGN KEY (`anr`) REFERENCES `Adres` (`anr`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Klant`
@@ -320,3 +377,4 @@ ALTER TABLE `Vaste Lening`
 ALTER TABLE `Werknemer`
   ADD CONSTRAINT `fnrconstraint` FOREIGN KEY (`fnr`) REFERENCES `Filiaal` (`fnr`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pnrconstraint` FOREIGN KEY (`pnr`) REFERENCES `Persoon` (`pnr`) ON DELETE CASCADE ON UPDATE CASCADE;
+
