@@ -179,6 +179,8 @@ public class bankController extends baseController
         if(kla != null){
             this.localBean.removeKlant(kla);
             this.setSessionPersoon(request);
+            // TODO: vergelijk filiaal (anders kan andere medewerker gwn verwijderen"
+            // TODO: niet zomaar verwijderen bij leningen
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
