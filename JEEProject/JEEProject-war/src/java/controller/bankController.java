@@ -173,13 +173,29 @@ public class bankController extends baseController
         this.forwardToDefaultPage(request, response);
     }
     
-    private void klantVerwijderen(HttpServletRequest request, HttpServletResponse response){
+    private void klantVerwijderen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int knr = Integer.decode(request.getParameter("knr"));
         Klant kla = this.localBean.getKlant(knr);
         if(kla != null){
-            this.localBean.removeKlant(kla);
-            this.setSessionPersoon(request);
+            Werknemer werknemer = ((Persoon)request.getSession().getAttribute("persoon")).getWerknemer();
             // TODO: vergelijk filiaal (anders kan andere medewerker gwn verwijderen"
+            if(kla.getFnr().equals(werknemer.getFnr())){
+                if(kla.getLeningList().isEmpty()){
+                    this.localBean.removeKlant(kla);
+                    this.setSessionPersoon(request);
+                }else{
+                    // TODO: ERROR openstaande leningen
+                    Persoon klantpers = kla.getPnr();
+                    request.setAttribute("errorstring", klantpers.getPachternaam() + " " +  klantpers.getPvoornaam() + " heeft nog openstaande rekeningen");
+                    forwardPage("bankError.jsp", request, response);
+                }
+                
+            }else{
+                Persoon klantpers = kla.getPnr();
+                request.setAttribute("errorstring", klantpers.getPachternaam() + " " +  klantpers.getPvoornaam() + " hoort niet bij uw filiaal (klant: " + kla.getFnr().getFnaam() + "| medewerker: " + werknemer.getFnr().getFnaam());
+                forwardPage("bankError.jsp", request, response);
+
+            }
             // TODO: niet zomaar verwijderen bij leningen
         }
     }
