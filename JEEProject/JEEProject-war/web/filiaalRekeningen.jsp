@@ -84,8 +84,9 @@
 %>
                     </div>
                     <div class="filiaalActions">
-                        <a href="">Lening Toevoegen</a> <br />
-                        <a href="?a=delUser&knr=<% out.print(klant.getKnr()); %>">Klant verwijderen</a> <br />
+                        <% int knr = klant.getKnr(); %>
+                        <a href="filiaalLeningToevoegen.jsp?knr=<% out.print(knr); %>">Lening Toevoegen</a> <br />
+                        <a href="?a=delUser&knr=<% out.print(knr); %>">Klant verwijderen</a> <br />
                     </div>
                     <hr style="clear: left" />
                 </div>

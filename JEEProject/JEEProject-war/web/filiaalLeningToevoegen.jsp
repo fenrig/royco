@@ -13,17 +13,24 @@
         <title>Filiaal: Lening Toevoegen</title>
     </head>
     <body>
-        <%@ include file="WEB-INF/jspf/header_klant.jspf" %>
+        <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
         <h1>Lening Toevoegen</h1>
         
         <select>
 <%
             Werknemer werknemer = ((Persoon) request.getSession().getAttribute("persoon")).getWerknemer();
             Filiaal filiaal = werknemer.getFnr();
+            int knr;
+            try{
+                knr = Integer.decode(request.getParameter("knr"));
+            }catch(Exception e){
+                knr = -1;
+            }
             for(Klant kI: filiaal.getKlantList()){
                 Persoon persoon = kI.getPnr();
+                int knrI = kI.getKnr();
 %>
-<option value="<% out.print(kI.getKnr()); %>"><% out.print(kI.getKnr()); %><% out.print(" : " + persoon.getPachternaam() + persoon.getPachternaam() ); %></option>         %></option>
+<option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPachternaam() ); %></option>         %></option>
 <%            } %>
         </select>
     </body>
