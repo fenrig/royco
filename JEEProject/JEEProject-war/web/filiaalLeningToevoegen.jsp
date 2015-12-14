@@ -16,26 +16,44 @@
         <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
         <h1>Lening Toevoegen</h1>
         
-        <select>
-<%
-            Werknemer werknemer = ((Persoon) request.getSession().getAttribute("persoon")).getWerknemer();
-            Filiaal filiaal = werknemer.getFnr();
-            int knr;
-            try{
-                String hulp = request.getParameter("knr");
-                if(hulp != null)
-                    knr = Integer.decode(hulp);
-                else
-                    knr = -1;
-            }catch(NumberFormatException e){
-                knr = -1;
-            }
-            for(Klant kI: filiaal.getKlantList()){
-                Persoon persoon = kI.getPnr();
-                int knrI = kI.getKnr();
-%>
-<option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPvoornaam() ); %></option>         %></option>
-<%            } %>
-        </select>
+        <div id="filiaalLeningToevoegen" class="generalTableForm">
+            <form method="POST" action="bankController">
+                <table>
+                    <tr>
+                        <td>Klant:</td>
+                        <td>
+                            <select name="klantnr">
+                        <%
+                                    Werknemer werknemer = ((Persoon) request.getSession().getAttribute("persoon")).getWerknemer();
+                                    Filiaal filiaal = werknemer.getFnr();
+                                    int knr;
+                                    try{
+                                        String hulp = request.getParameter("knr");
+                                        if(hulp != null)
+                                            knr = Integer.decode(hulp);
+                                        else
+                                            knr = -1;
+                                    }catch(NumberFormatException e){
+                                        knr = -1;
+                                    }
+                                    for(Klant kI: filiaal.getKlantList()){
+                                        Persoon persoon = kI.getPnr();
+                                        int knrI = kI.getKnr();
+                        %>
+                        <option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPvoornaam() ); %></option>         %></option>
+                        <%            } %>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Te lenen bedrag:</td>
+                        <td><input type="number" min="0" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>
