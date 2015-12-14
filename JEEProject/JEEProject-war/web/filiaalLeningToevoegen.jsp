@@ -34,7 +34,7 @@
                 Persoon persoon = kI.getPnr();
                 int knrI = kI.getKnr();
 %>
-<option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPachternaam() ); %></option>         %></option>
+<option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPvoornaam() ); %></option>         %></option>
 <%            } %>
         </select>
     </body>
