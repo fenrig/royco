@@ -22,8 +22,12 @@
             Filiaal filiaal = werknemer.getFnr();
             int knr;
             try{
-                knr = Integer.decode(request.getParameter("knr"));
-            }catch(Exception e){
+                String hulp = request.getParameter("knr");
+                if(hulp != null)
+                    knr = Integer.decode(hulp);
+                else
+                    knr = -1;
+            }catch(NumberFormatException e){
                 knr = -1;
             }
             for(Klant kI: filiaal.getKlantList()){
