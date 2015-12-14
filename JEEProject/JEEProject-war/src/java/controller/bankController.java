@@ -196,7 +196,6 @@ public class bankController extends baseController
                 forwardPage("bankError.jsp", request, response);
 
             }
-            // TODO: niet zomaar verwijderen bij leningen
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

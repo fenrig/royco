@@ -6,6 +6,9 @@
         <a href="<c:url value="klantToevoegen.jsp" />">Klant Toevoegen</a>
     </div>
     <div>
+        <a href="<c:url value="filiaalLeningToevoegen.jsp" />">Lening Toevoegen</a>
+    </div>
+    <div>
         <a href="<c:url value="filiaalRekeningen.jsp" />">Leningen bekijken</a>
     </div>
 </div>
