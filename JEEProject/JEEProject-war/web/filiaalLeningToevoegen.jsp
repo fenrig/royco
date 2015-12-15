@@ -4,6 +4,7 @@
     Author     : fenrig
 --%>
 
+<%@page import="beans.soortRekening"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,23 @@
                         <td><input type="number" min="0" step="0.01" /></td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <!-- TODO: vragen hoe juist max rente vast te stellen -->
+                        <!-- TODO: vragen ofdat een nieuw adres ingeven ook moet kunnen -->
+                        <td>Soort rekening:</td>
+                        <td>
+                            <select name="soort">
+<%                                  
+                                    for (soortRekening rek : soortRekening.values()) {
+                                        out.print("<option value=\"" + rek.hashCode() + "\">" + rek.toString() + "</option>");
+                                      }
+%>                                 
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="checkbox"name="hypothecaireLening">Hypothecaire lening</input>
+                        </td>
                     </tr>
                 </table>
             </form>
