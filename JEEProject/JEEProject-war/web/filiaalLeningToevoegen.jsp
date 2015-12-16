@@ -65,9 +65,31 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <input type="checkbox"name="hypothecaireLening">Hypothecaire lening</input>
+                        <td>Hypothecaire lening</td>
+                        <td>
+                            <input type="checkbox" name="hypothecaireLening" />
                         </td>
+                    </tr>
+                    <tr>
+                        <td />
+                        <td>
+                            <select name="adres">
+                                <option value="0" selected >Woonplaats nemen</option>
+                                <option value="1">Nieuw adres ingeven</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>straatnaam</td>
+                        <td><input type="text" name="straatnaam" /></td>
+                    </tr>
+                    <tr>
+                        <td>straatnr</td>
+                        <td><input type="text" name="straatnr" /></td>
+                    </tr>
+                    <tr>
+                        <td>postcode</td>
+                        <td><input type="number" name="postcode" min="1000" max="9999" step="1" /></td>
                     </tr>
                 </table>
             </form>

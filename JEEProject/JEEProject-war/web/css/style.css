@@ -85,7 +85,15 @@ td {
 
 div.generalTableForm td{
     text-align: right;
-} 
+}
+
+div.generalTableForm input,select{
+    width: 100%;
+}
+
+div.generalTableForm td:nth-child(even){
+    text-align: left;
+}
 
 div.filiaalRekening div.rekeningOverzicht{
     float: left;

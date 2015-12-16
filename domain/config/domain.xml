@@ -518,12 +518,14 @@
   </secure-admin>
   <clusters></clusters>
   <applications>
-    <application context-root="/JEEProject-war" object-type="user" name="JEEProject" directory-deployed="true" location="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/">
+    <application object-type="user" name="JEEProject" directory-deployed="true" location="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/">
       <property name="archiveType" value="ear"></property>
+      <property name="org.glassfish.ejb.startup.keepstate" value="true"></property>
       <property name="isComposite" value="true"></property>
       <property name="appLocation" value="file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="95036177224826880"></property>
+      <property name="org.glassfish.ejb.container.application_unique_id" value="95045100777242624"></property>
       <property name="defaultAppName" value="JEEProject"></property>
+      <property name="keepSessions" value="true"></property>
       <module name="JEEProject-war.war">
         <engine sniffer="security"></engine>
         <engine sniffer="web"></engine>
