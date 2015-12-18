@@ -29,4 +29,7 @@ public interface localStatelessBeanLocal
     public Klant getKlant(int knr);
     public void removeKlant(Klant klant);
     
+    public VasteLening leningToevoegen(Lening lening, VasteLening vaslening);
+    public VariabeleLening leningToevoegen(Lening lening, VariabeleLening varlening);
+    
 }

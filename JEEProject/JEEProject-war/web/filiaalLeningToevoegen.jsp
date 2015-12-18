@@ -92,6 +92,7 @@
                         <td><input type="number" name="postcode" min="1000" max="9999" step="1" /></td>
                     </tr>
                 </table>
+                <input type="hidden" name="postOrigin" value="filiaalLeningToevoegen.jsp" />
             </form>
         </div>
     </body>

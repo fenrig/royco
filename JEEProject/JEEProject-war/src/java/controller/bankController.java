@@ -53,12 +53,19 @@ public class bankController extends baseController
        // request.getParameter("firstName");
         switch(request.getParameter("postOrigin")){
             case "klantToevoegen.jsp":
-                klantToevoegen(request, response);
+                this.klantToevoegen(request, response);
+                break;
+            case "filiaalLeningToevoegen.jsp":
+                this.leningToevoegen(request, response);
                 break;
             default:
                 forwardPage("ErrorPagina.jsp", request, response);
                 return;
         }
+    }
+    
+    protected void leningToevoegen(HttpServletRequest request, HttpServletResponse response){
+        
     }
     
     protected void klantToevoegen(HttpServletRequest request, HttpServletResponse response)

@@ -169,5 +169,26 @@ public class localStatelessBean implements localStatelessBeanLocal
         }
         return ret;
     }
+    
+    @Override
+    public VasteLening leningToevoegen(Lening lening, VasteLening vaslening){
+        this.leningToevoegen(lening);
+        // TODO: controleer link tussen leningen
+        // TODO: de rest
+        return vaslening;
+    }
+    
+    @Override
+    public VariabeleLening leningToevoegen(Lening lening, VariabeleLening varlening){
+        this.leningToevoegen(lening);
+        // TODO: controleer link tussen leningen
+        // TODO: de rest
+        return varlening;
+    }
+    
+    private Lening leningToevoegen(Lening lening){
+        // TODO:
+        return lening;
+    }
 
 }
