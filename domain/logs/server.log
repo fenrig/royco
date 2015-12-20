@@ -18692,3 +18692,24 @@ KeyIdentifier [
 [2015-12-20T16:55:18.550+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626918550] [levelValue: 800] [[
   JEEProject was successfully deployed in 941 milliseconds.]]
 
+[2015-12-20T16:58:35.120+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=186 _ThreadName=Thread-32] [timeMillis: 1450627115120] [levelValue: 800] [[
+  Server shutdown initiated]]
+
+[2015-12-20T16:58:35.125+0100] [glassfish 4.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=186 _ThreadName=Thread-32] [timeMillis: 1450627115125] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@5633ed82 from service registry.]]
+
+[2015-12-20T16:58:35.126+0100] [glassfish 4.0] [INFO] [] [] [tid: _ThreadID=186 _ThreadName=Thread-3] [timeMillis: 1450627115126] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2015-12-20T16:58:35.144+0100] [glassfish 4.0] [INFO] [NCLS-JMX-00001] [javax.enterprise.system.jmx] [tid: _ThreadID=186 _ThreadName=Thread-32] [timeMillis: 1450627115144] [levelValue: 800] [[
+  JMXStartupService and JMXConnectors have been shut down.]]
+
+[2015-12-20T16:58:35.223+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=186 _ThreadName=Thread-32] [timeMillis: 1450627115223] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU logout successful]]
+
+[2015-12-20T16:58:35.277+0100] [glassfish 4.0] [INFO] [] [] [tid: _ThreadID=186 _ThreadName=Thread-3] [timeMillis: 1450627115277] [levelValue: 800] [[
+  JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource]]]
+
+[2015-12-20T16:58:35.304+0100] [glassfish 4.0] [INFO] [ra.stop-successful] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=187 _ThreadName=Thread-33] [timeMillis: 1450627115304] [levelValue: 800] [[
+  RAR7094: __ds_jdbc_ra shutdown successful.]]
+
