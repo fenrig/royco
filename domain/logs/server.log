@@ -18440,3 +18440,255 @@ KeyIdentifier [
 [2015-12-20T16:51:08.298+0100] [glassfish 4.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=104 _ThreadName=http-listener-1(1)] [timeMillis: 1450626668298] [levelValue: 900] [[
   Context path from ServletContext: /JEEProject-war differs from path from bundle: JEEProject-war]]
 
+[2015-12-20T16:53:15.474+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.container.ejb.org.glassfish.ejb.startup] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795474] [levelValue: 800] [[
+  keepstate options resolved to true, saving appId 95068268556910592 for application JEEProject.]]
+
+[2015-12-20T16:53:15.491+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795491] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU logout successful]]
+
+[2015-12-20T16:53:15.577+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795577] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:15.698+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795698] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:15.775+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795775] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:15.797+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795797] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:15.922+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795922] [levelValue: 800] [[
+  beans.Adres actually got transformed]]
+
+[2015-12-20T16:53:15.925+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795925] [levelValue: 800] [[
+  beans.VariabeleLening actually got transformed]]
+
+[2015-12-20T16:53:15.928+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795928] [levelValue: 800] [[
+  beans.Lening actually got transformed]]
+
+[2015-12-20T16:53:15.931+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795931] [levelValue: 800] [[
+  beans.Klant actually got transformed]]
+
+[2015-12-20T16:53:15.933+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795933] [levelValue: 800] [[
+  beans.VasteLening actually got transformed]]
+
+[2015-12-20T16:53:15.936+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795936] [levelValue: 800] [[
+  beans.Werknemer actually got transformed]]
+
+[2015-12-20T16:53:15.942+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795942] [levelValue: 800] [[
+  beans.Persoon actually got transformed]]
+
+[2015-12-20T16:53:15.944+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795944] [levelValue: 800] [[
+  beans.Filiaal actually got transformed]]
+
+[2015-12-20T16:53:15.953+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795953] [levelValue: 800] [[
+  EclipseLink, version: Eclipse Persistence Services - 2.5.0.v20130507-3faac2b]]
+
+[2015-12-20T16:53:15.976+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795976] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU login successful]]
+
+[2015-12-20T16:53:15.994+0100] [glassfish 4.0] [INFO] [ejb.portable_jndi_names] [javax.enterprise.system.container.ejb.com.sun.ejb.containers] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626795994] [levelValue: 800] [[
+  EJB5181:Portable JNDI names for EJB localStatelessBean: [java:global/JEEProject/JEEProject-ejb/localStatelessBean!beans.localStatelessBeanLocal, java:global/JEEProject/JEEProject-ejb/localStatelessBean]]]
+
+[2015-12-20T16:53:16.329+0100] [glassfish 4.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626796329] [levelValue: 800] [[
+  Initializing Mojarra 2.2.0 ( 20130502-2118 https://svn.java.net/svn/mojarra~svn/tags/2.2.0@11930) for context '/JEEProject-war']]
+
+[2015-12-20T16:53:16.594+0100] [glassfish 4.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626796594] [levelValue: 800] [[
+  Loading application [JEEProject#JEEProject-war.war] at [JEEProject-war]]]
+
+[2015-12-20T16:53:16.616+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626796616] [levelValue: 800] [[
+  JEEProject was successfully deployed in 1.225 milliseconds.]]
+
+[2015-12-20T16:53:22.160+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.container.ejb.org.glassfish.ejb.startup] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802160] [levelValue: 800] [[
+  keepstate options resolved to true, saving appId 95068268556910592 for application JEEProject.]]
+
+[2015-12-20T16:53:22.175+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802175] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU logout successful]]
+
+[2015-12-20T16:53:22.252+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802252] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:22.324+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802324] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:22.362+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802362] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:22.376+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802376] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:53:22.472+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802472] [levelValue: 800] [[
+  beans.Adres actually got transformed]]
+
+[2015-12-20T16:53:22.478+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802478] [levelValue: 800] [[
+  beans.VariabeleLening actually got transformed]]
+
+[2015-12-20T16:53:22.481+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802481] [levelValue: 800] [[
+  beans.Lening actually got transformed]]
+
+[2015-12-20T16:53:22.488+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802488] [levelValue: 800] [[
+  beans.Klant actually got transformed]]
+
+[2015-12-20T16:53:22.490+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802490] [levelValue: 800] [[
+  beans.VasteLening actually got transformed]]
+
+[2015-12-20T16:53:22.493+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802493] [levelValue: 800] [[
+  beans.Werknemer actually got transformed]]
+
+[2015-12-20T16:53:22.496+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802496] [levelValue: 800] [[
+  beans.Persoon actually got transformed]]
+
+[2015-12-20T16:53:22.499+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802499] [levelValue: 800] [[
+  beans.Filiaal actually got transformed]]
+
+[2015-12-20T16:53:22.512+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802512] [levelValue: 800] [[
+  EclipseLink, version: Eclipse Persistence Services - 2.5.0.v20130507-3faac2b]]
+
+[2015-12-20T16:53:22.530+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802530] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU login successful]]
+
+[2015-12-20T16:53:22.550+0100] [glassfish 4.0] [INFO] [ejb.portable_jndi_names] [javax.enterprise.system.container.ejb.com.sun.ejb.containers] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802550] [levelValue: 800] [[
+  EJB5181:Portable JNDI names for EJB localStatelessBean: [java:global/JEEProject/JEEProject-ejb/localStatelessBean!beans.localStatelessBeanLocal, java:global/JEEProject/JEEProject-ejb/localStatelessBean]]]
+
+[2015-12-20T16:53:22.979+0100] [glassfish 4.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626802979] [levelValue: 800] [[
+  Initializing Mojarra 2.2.0 ( 20130502-2118 https://svn.java.net/svn/mojarra~svn/tags/2.2.0@11930) for context '/JEEProject-war']]
+
+[2015-12-20T16:53:23.164+0100] [glassfish 4.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626803164] [levelValue: 800] [[
+  Loading application [JEEProject#JEEProject-war.war] at [JEEProject-war]]]
+
+[2015-12-20T16:53:23.189+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=37 _ThreadName=admin-listener(4)] [timeMillis: 1450626803189] [levelValue: 800] [[
+  JEEProject was successfully deployed in 1.070 milliseconds.]]
+
+[2015-12-20T16:53:29.736+0100] [glassfish 4.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=106 _ThreadName=http-listener-1(3)] [timeMillis: 1450626809736] [levelValue: 900] [[
+  Context path from ServletContext: /JEEProject-war differs from path from bundle: JEEProject-war]]
+
+[2015-12-20T16:53:49.747+0100] [glassfish 4.0] [INFO] [] [] [tid: _ThreadID=104 _ThreadName=Thread-3] [timeMillis: 1450626829747] [levelValue: 800] [[
+  1168635414]]
+
+[2015-12-20T16:53:49.747+0100] [glassfish 4.0] [INFO] [] [] [tid: _ThreadID=104 _ThreadName=Thread-3] [timeMillis: 1450626829747] [levelValue: 800] [[
+  1168635414]]
+
+[2015-12-20T16:53:49.747+0100] [glassfish 4.0] [INFO] [] [] [tid: _ThreadID=104 _ThreadName=Thread-3] [timeMillis: 1450626829747] [levelValue: 800] [[
+  814204344]]
+
+[2015-12-20T16:55:14.975+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.container.ejb.org.glassfish.ejb.startup] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626914975] [levelValue: 800] [[
+  keepstate options resolved to true, saving appId 95068268556910592 for application JEEProject.]]
+
+[2015-12-20T16:55:14.994+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626914994] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU logout successful]]
+
+[2015-12-20T16:55:15.091+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915091] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:15.162+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915162] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:15.206+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915206] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:15.219+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915219] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:15.309+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915309] [levelValue: 800] [[
+  beans.Adres actually got transformed]]
+
+[2015-12-20T16:55:15.312+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915312] [levelValue: 800] [[
+  beans.VariabeleLening actually got transformed]]
+
+[2015-12-20T16:55:15.314+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915314] [levelValue: 800] [[
+  beans.Lening actually got transformed]]
+
+[2015-12-20T16:55:15.317+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915317] [levelValue: 800] [[
+  beans.Klant actually got transformed]]
+
+[2015-12-20T16:55:15.318+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915318] [levelValue: 800] [[
+  beans.VasteLening actually got transformed]]
+
+[2015-12-20T16:55:15.320+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915320] [levelValue: 800] [[
+  beans.Werknemer actually got transformed]]
+
+[2015-12-20T16:55:15.322+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915322] [levelValue: 800] [[
+  beans.Persoon actually got transformed]]
+
+[2015-12-20T16:55:15.324+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915324] [levelValue: 800] [[
+  beans.Filiaal actually got transformed]]
+
+[2015-12-20T16:55:15.332+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915332] [levelValue: 800] [[
+  EclipseLink, version: Eclipse Persistence Services - 2.5.0.v20130507-3faac2b]]
+
+[2015-12-20T16:55:15.341+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915341] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU login successful]]
+
+[2015-12-20T16:55:15.352+0100] [glassfish 4.0] [INFO] [ejb.portable_jndi_names] [javax.enterprise.system.container.ejb.com.sun.ejb.containers] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915352] [levelValue: 800] [[
+  EJB5181:Portable JNDI names for EJB localStatelessBean: [java:global/JEEProject/JEEProject-ejb/localStatelessBean!beans.localStatelessBeanLocal, java:global/JEEProject/JEEProject-ejb/localStatelessBean]]]
+
+[2015-12-20T16:55:15.753+0100] [glassfish 4.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915753] [levelValue: 800] [[
+  Initializing Mojarra 2.2.0 ( 20130502-2118 https://svn.java.net/svn/mojarra~svn/tags/2.2.0@11930) for context '/JEEProject-war']]
+
+[2015-12-20T16:55:15.903+0100] [glassfish 4.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915903] [levelValue: 800] [[
+  Loading application [JEEProject#JEEProject-war.war] at [JEEProject-war]]]
+
+[2015-12-20T16:55:15.914+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=34 _ThreadName=admin-listener(1)] [timeMillis: 1450626915914] [levelValue: 800] [[
+  JEEProject was successfully deployed in 961 milliseconds.]]
+
+[2015-12-20T16:55:17.649+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.container.ejb.org.glassfish.ejb.startup] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917649] [levelValue: 800] [[
+  keepstate options resolved to true, saving appId 95068268556910592 for application JEEProject.]]
+
+[2015-12-20T16:55:17.658+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917658] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU logout successful]]
+
+[2015-12-20T16:55:17.730+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917730] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:17.800+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917800] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:17.833+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917833] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:17.848+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917848] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2015-12-20T16:55:17.936+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917936] [levelValue: 800] [[
+  beans.Adres actually got transformed]]
+
+[2015-12-20T16:55:17.939+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917939] [levelValue: 800] [[
+  beans.VariabeleLening actually got transformed]]
+
+[2015-12-20T16:55:17.941+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917941] [levelValue: 800] [[
+  beans.Lening actually got transformed]]
+
+[2015-12-20T16:55:17.944+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917944] [levelValue: 800] [[
+  beans.Klant actually got transformed]]
+
+[2015-12-20T16:55:17.946+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917946] [levelValue: 800] [[
+  beans.VasteLening actually got transformed]]
+
+[2015-12-20T16:55:17.947+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917947] [levelValue: 800] [[
+  beans.Werknemer actually got transformed]]
+
+[2015-12-20T16:55:17.949+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917949] [levelValue: 800] [[
+  beans.Persoon actually got transformed]]
+
+[2015-12-20T16:55:17.952+0100] [glassfish 4.0] [INFO] [NCLS-COMUTIL-00017] [javax.enterprise.system.util] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917952] [levelValue: 800] [[
+  beans.Filiaal actually got transformed]]
+
+[2015-12-20T16:55:17.962+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917962] [levelValue: 800] [[
+  EclipseLink, version: Eclipse Persistence Services - 2.5.0.v20130507-3faac2b]]
+
+[2015-12-20T16:55:17.971+0100] [glassfish 4.0] [INFO] [] [org.eclipse.persistence.session.file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU.connection] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917971] [levelValue: 800] [[
+  file:/home/fenrig/Projects/AppArch/project/JEEProject/dist/gfdeploy/JEEProject/JEEProject-ejb_jar/_JEEProject-ejbPU login successful]]
+
+[2015-12-20T16:55:17.981+0100] [glassfish 4.0] [INFO] [ejb.portable_jndi_names] [javax.enterprise.system.container.ejb.com.sun.ejb.containers] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626917981] [levelValue: 800] [[
+  EJB5181:Portable JNDI names for EJB localStatelessBean: [java:global/JEEProject/JEEProject-ejb/localStatelessBean!beans.localStatelessBeanLocal, java:global/JEEProject/JEEProject-ejb/localStatelessBean]]]
+
+[2015-12-20T16:55:18.374+0100] [glassfish 4.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626918374] [levelValue: 800] [[
+  Initializing Mojarra 2.2.0 ( 20130502-2118 https://svn.java.net/svn/mojarra~svn/tags/2.2.0@11930) for context '/JEEProject-war']]
+
+[2015-12-20T16:55:18.534+0100] [glassfish 4.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626918534] [levelValue: 800] [[
+  Loading application [JEEProject#JEEProject-war.war] at [JEEProject-war]]]
+
+[2015-12-20T16:55:18.550+0100] [glassfish 4.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=35 _ThreadName=admin-listener(2)] [timeMillis: 1450626918550] [levelValue: 800] [[
+  JEEProject was successfully deployed in 941 milliseconds.]]
+

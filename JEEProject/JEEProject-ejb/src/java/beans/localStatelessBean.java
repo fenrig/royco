@@ -200,7 +200,10 @@ public class localStatelessBean implements localStatelessBeanLocal
         this.addLening(lening);
         double maxinterestvoet = varlening.getMaxrente();
         if(maxinterestvoet <= 0 || maxinterestvoet >= 1){
-            throw new validationException("Maximum interestvoet");
+            throw new validationException("maximum interestvoet");
+        }
+        if(maxinterestvoet < lening.getInterest()){
+            throw new validationException("maximum interestvoet en toegepaste interest");
         }
         
         varlening.setLnr(lening);

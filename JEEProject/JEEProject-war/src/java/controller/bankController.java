@@ -210,6 +210,10 @@ public class bankController extends baseController
             return;
         }
         
+        this.setSessionPersoon(request);
+        this.forwardToDefaultPage(request, response);
+        return;
+        
     }
     
     protected void klantToevoegen(HttpServletRequest request, HttpServletResponse response)
