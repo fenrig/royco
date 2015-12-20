@@ -87,6 +87,22 @@ public class localStatelessBean implements localStatelessBeanLocal
         Adres r = em.merge(adr);
         em.remove(r);
     }
+    
+    @Override
+    public Adres getAdres(int anr){
+        Adres ret;
+        try{
+            ret = (Adres) em.createNamedQuery("Adres.findByAnr").setParameter("anr", anr).getSingleResult();
+        }catch(NoResultException e){
+            ret = null;
+        }
+        return ret;
+    }
+    
+    @Override
+    public Adres getVoidAdres(){
+        return this.getAdres(0);
+    }
 
     @Override
     public Persoon addPersoon(Persoon pers) throws validationException, notuniqueException
@@ -171,23 +187,44 @@ public class localStatelessBean implements localStatelessBeanLocal
     }
     
     @Override
-    public VasteLening leningToevoegen(Lening lening, VasteLening vaslening){
-        this.leningToevoegen(lening);
-        // TODO: controleer link tussen leningen
-        // TODO: de rest
+    public VasteLening addLening(Lening lening, VasteLening vaslening) throws validationException{
+        this.addLening(lening);
+        vaslening.setLnr(lening);
+        em.persist(lening);
+        em.persist(vaslening);
         return vaslening;
     }
     
     @Override
-    public VariabeleLening leningToevoegen(Lening lening, VariabeleLening varlening){
-        this.leningToevoegen(lening);
-        // TODO: controleer link tussen leningen
-        // TODO: de rest
+    public VariabeleLening addLening(Lening lening, VariabeleLening varlening) throws validationException{
+        this.addLening(lening);
+        double maxinterestvoet = varlening.getMaxrente();
+        if(maxinterestvoet <= 0 || maxinterestvoet >= 1){
+            throw new validationException("Maximum interestvoet");
+        }
+        
+        varlening.setLnr(lening);
+        
+        em.persist(lening);
+        em.persist(varlening);
         return varlening;
     }
     
-    private Lening leningToevoegen(Lening lening){
-        // TODO:
+    private Lening addLening(Lening lening) throws validationException{
+        double interestvoet;
+        if(lening.getAnr() == null){
+            lening.setAnr(this.getVoidAdres());
+        }
+        if(lening.getKnr() == null){
+            throw new validationException("knr");
+        }
+        interestvoet = lening.getInterest();
+        if(interestvoet <= 0 || interestvoet >= 1){
+            throw new validationException("interestvoet");
+        }
+        if(lening.getSaldo() <= 0){
+            throw new validationException("saldo");
+        }
         return lening;
     }
 

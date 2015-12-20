@@ -64,7 +64,151 @@ public class bankController extends baseController
         }
     }
     
-    protected void leningToevoegen(HttpServletRequest request, HttpServletResponse response){
+    protected void leningToevoegen(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        Adres adr = null;
+        int knr;
+        double saldo;
+        String hypo;
+        Klant klant;
+        double interestvoet;
+        double maxinterestvoet;
+        
+        int soortrek;
+        
+        try{
+            knr = Integer.decode(request.getParameter("klantnr"));
+            klant = this.localBean.getKlant(knr);
+            if(klant == null){
+                request.setAttribute("errorstring", "Deze klant bestaat niet!");
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+        }catch(NumberFormatException e){
+            String emsg = "U heeft de verkeerde klant (knr) gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        try{
+            saldo = Double.parseDouble(request.getParameter("leenbedrag"));
+        }catch(NumberFormatException e){
+            String emsg = "U heeft de het verkeerde leenbedrag gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        try{
+            interestvoet = Double.parseDouble(request.getParameter("interestvoet"));
+        }catch(NumberFormatException e){
+            String emsg = "U heeft de verkeerde interestvoet gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        
+        try{
+            soortrek = Integer.decode(request.getParameter("soortrek"));
+            System.out.print(soortrek);
+            System.out.print(soortRekening.valueOf("VariabeleLening").hashCode());
+            System.out.print(soortRekening.valueOf("VasteLening").hashCode());
+        }catch(NumberFormatException e){
+            String emsg = "U heeft geen hashcode meegegeven";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        
+        hypo = request.getParameter("hypothecaireLening");
+        if(hypo != null && hypo.equals("on")){
+            String adresF = request.getParameter("adres");
+            if(adresF.equals("0")){
+                adr = klant.getAnr();
+            }else{
+                adr = new Adres();
+                String straatnaam = request.getParameter("straatnaam");
+                String straatnr = request.getParameter("straatnr");
+                int postcode = -9999;
+                try{
+                    postcode = Integer.decode(request.getParameter("postcode"));
+                }catch(NumberFormatException e){
+                        String emsg = "U heeft postcode verkeerd ingevuld";
+                        request.setAttribute("errorstring", emsg);
+                        request.setAttribute("exception", e);
+                        forwardPage("bankError.jsp", request, response);
+                        return;
+                }
+                adr.setStraatnaam(straatnaam);
+                adr.setStraatnr(straatnr);
+                adr.setPostcode(postcode);
+                try{
+                    this.localBean.addAdres(adr);
+                }catch(validationException e){
+                        String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                        request.setAttribute("errorstring", emsg);
+                        request.setAttribute("exception", e);
+                        forwardPage("bankError.jsp", request, response);
+                        return;
+                }
+            }
+        }
+        
+        Lening len = new Lening();
+        len.setAnr(adr);
+        len.setKnr(klant);
+        len.setInterest(interestvoet);
+        len.setSaldo(saldo);
+        
+        if(soortRekening.valueOf("VariabeleLening").hashCode() == soortrek ){
+            try{
+                maxinterestvoet = Double.parseDouble(request.getParameter("maxinterestvoet"));
+            }catch(NumberFormatException e){
+                if(adr != null && ! adr.equals(klant.getAnr()))
+                    this.localBean.removeAdres(adr);
+                String emsg = "U heeft de verkeerde max interestvoet gekozen";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+            VariabeleLening varl = new VariabeleLening();
+            varl.setMaxrente(maxinterestvoet);
+            try{
+                this.localBean.addLening(len, varl);
+            }catch(validationException e){
+                if(adr != null && ! adr.equals(klant.getAnr()))
+                    this.localBean.removeAdres(adr);
+                String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+        }else if(soortRekening.valueOf("VasteLening").hashCode() == soortrek){
+            VasteLening vasl = new VasteLening();
+            try{
+                this.localBean.addLening(len, vasl);
+            }catch(validationException e){
+                if(adr != null && ! adr.equals(klant.getAnr()))
+                    this.localBean.removeAdres(adr);
+                String emsg = "U heeft " + e.getMessage() + " verkeerd ingevuld";
+                request.setAttribute("errorstring", emsg);
+                request.setAttribute("exception", e);
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+        }else{
+            if(adr != null && ! adr.equals(klant.getAnr()))
+                    this.localBean.removeAdres(adr);
+            request.setAttribute("errorstring", "U heeft geen (juiste) lening gekozen");
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
         
     }
     
@@ -167,6 +311,7 @@ public class bankController extends baseController
         String a = request.getParameter("a");
         if(a == null){
             processRequest(request, response);
+            return;
         }else{
             switch(a){
                 case "delUser":
@@ -185,13 +330,11 @@ public class bankController extends baseController
         Klant kla = this.localBean.getKlant(knr);
         if(kla != null){
             Werknemer werknemer = ((Persoon)request.getSession().getAttribute("persoon")).getWerknemer();
-            // TODO: vergelijk filiaal (anders kan andere medewerker gwn verwijderen"
             if(kla.getFnr().equals(werknemer.getFnr())){
                 if(kla.getLeningList().isEmpty()){
                     this.localBean.removeKlant(kla);
                     this.setSessionPersoon(request);
                 }else{
-                    // TODO: ERROR openstaande leningen
                     Persoon klantpers = kla.getPnr();
                     request.setAttribute("errorstring", klantpers.getPachternaam() + " " +  klantpers.getPvoornaam() + " heeft nog openstaande rekeningen");
                     forwardPage("bankError.jsp", request, response);

@@ -21,6 +21,8 @@ public interface localStatelessBeanLocal
           
     public Adres addAdres(Adres adr) throws validationException;
     public void removeAdres(Adres adr);
+    public Adres getAdres(int anr);
+    public Adres getVoidAdres();
     
     public Persoon addPersoon(Persoon pers) throws validationException, notuniqueException;
     public void removePersoon(Persoon pers);
@@ -29,7 +31,7 @@ public interface localStatelessBeanLocal
     public Klant getKlant(int knr);
     public void removeKlant(Klant klant);
     
-    public VasteLening leningToevoegen(Lening lening, VasteLening vaslening);
-    public VariabeleLening leningToevoegen(Lening lening, VariabeleLening varlening);
+    public VasteLening addLening(Lening lening, VasteLening vaslening) throws validationException;
+    public VariabeleLening addLening(Lening lening, VariabeleLening varlening) throws validationException;
     
 }

@@ -93,6 +93,7 @@ div.generalTableForm input,select{
 
 div.generalTableForm td:nth-child(even){
     text-align: left;
+    min-width: 200px;
 }
 
 div.filiaalRekening div.rekeningOverzicht{

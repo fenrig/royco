@@ -41,25 +41,32 @@
                                         Persoon persoon = kI.getPnr();
                                         int knrI = kI.getKnr();
                         %>
-                        <option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + persoon.getPvoornaam() ); %></option>         %></option>
+                        <option value="<% out.print(knrI); %>" <%if(knr == knrI) out.print("selected"); %>><% out.print(kI.getKnr()); out.print(" : " + persoon.getPachternaam() + " " + persoon.getPvoornaam() ); %></option>         %></option>
                         <%            } %>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>Te lenen bedrag:</td>
-                        <td><input type="number" min="0" step="0.01" /></td>
+                        <td><input name="leenbedrag" type="number" min="0" step="0.01" /></td>
+                    </tr>
+                    <tr>
+                        <td>Interestvoet:</td>
+                        <td><input name="interestvoet" type="number" max="1" min="0" step="0.00001" /></td>
+                    </tr>
+                    <tr>
+                        <td>Max interestvoet:</td>
+                        <td><input name="maxinterestvoet" type="number" max="1" min="0" step="0.00001" /></td>
                     </tr>
                     <tr>
                         <!-- TODO: vragen hoe juist max rente vast te stellen -->
-                        <!-- TODO: vragen ofdat een nieuw adres ingeven ook moet kunnen -->
                         <td>Soort rekening:</td>
                         <td>
-                            <select name="soort">
+                            <select name="soortrek">
 <%                                  
                                     for (soortRekening rek : soortRekening.values()) {
                                         out.print("<option value=\"" + rek.hashCode() + "\">" + rek.toString() + "</option>");
-                                      }
+                                     }
 %>                                 
                             </select>
                         </td>
@@ -90,6 +97,11 @@
                     <tr>
                         <td>postcode</td>
                         <td><input type="number" name="postcode" min="1000" max="9999" step="1" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" >
+                            <input type="Submit" value="Lening Toevoegen" style="width: 100%;"/>
+                        </td>
                     </tr>
                 </table>
                 <input type="hidden" name="postOrigin" value="filiaalLeningToevoegen.jsp" />
