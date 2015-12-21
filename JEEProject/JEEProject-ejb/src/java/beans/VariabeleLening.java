@@ -17,7 +17,8 @@ import javax.xml.bind.annotation.*;
 {
     @NamedQuery(name = "VariabeleLening.findAll", query = "SELECT v FROM VariabeleLening v"),
     @NamedQuery(name = "VariabeleLening.findByVarnr", query = "SELECT v FROM VariabeleLening v WHERE v.varnr = :varnr"),
-    @NamedQuery(name = "VariabeleLening.findByMaxrente", query = "SELECT v FROM VariabeleLening v WHERE v.maxrente = :maxrente")
+    @NamedQuery(name = "VariabeleLening.findByMaxrente", query = "SELECT v FROM VariabeleLening v WHERE v.maxrente = :maxrente"),
+    @NamedQuery(name = "VariabeleLening.findByFnr", query = "SELECT v FROM VariabeleLening v, Lening L, Klant k WHERE v.lnr = l.lnr AND l.knr = k.knr AND k.fnr = :fnr")
 })
 public class VariabeleLening implements Serializable
 {

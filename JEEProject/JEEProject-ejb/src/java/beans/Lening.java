@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.*;
     @NamedQuery(name = "Lening.findByKnr", query = "SELECT l FROM Lening l WHERE l.knr = :knr"),
     @NamedQuery(name = "Lening.findByInterest", query = "SELECT l FROM Lening l WHERE l.interest = :interest"),
     @NamedQuery(name = "Lening.findBySaldo", query = "SELECT l FROM Lening l WHERE l.saldo = :saldo"),
-    // Niet automatisch gegenereerd
+// Niet automatisch gegenereerd
 //    @NamedQuery(name = "Lening.findByFiliaalNr", query = "SELECT l FROM Lening L LEFT JOIN `Klant` ON `Lening`.`knr` = `Klant`.`knr` LEFT JOIN `Filiaal` ON `Klant`.`fnr` = `Filiaal`.`fnr` WHERE `Filiaal`.`fnr` = :fnr"),
 //    @NamedQuery(name = "Lening.findByFiliaalNaam", query = "SELECT l FROM Lening L LEFT JOIN `Klant` ON `Lening`.`knr` = `Klant`.`knr` LEFT JOIN `Filiaal` ON `Klant`.`fnr` = `Filiaal`.`fnr` WHERE `Filiaal`.`fnaam` = :fnaam")
 })

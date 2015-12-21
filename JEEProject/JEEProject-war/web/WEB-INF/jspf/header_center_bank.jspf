@@ -11,4 +11,7 @@
     <div>
         <a href="<c:url value="filiaalRekeningen.jsp" />">Leningen bekijken</a>
     </div>
+    <div>
+        <a href="<c:url value="filiaalRenteAanpassen.jsp" />">Rente aanpassen</a>
+    </div>
 </div>

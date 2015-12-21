@@ -229,7 +229,7 @@ public class bankController extends baseController
                 String emsg = "U heeft postcode verkeerd ingevuld";
                 request.setAttribute("errorstring", emsg);
                 request.setAttribute("exception", e);
-                forwardPage("bankError.jsp", request, response);
+                this.forwardPage("bankError.jsp", request, response);
                 return;
         }
         adr.setStraatnaam(straatnaam);
@@ -319,14 +319,31 @@ public class bankController extends baseController
         }else{
             switch(a){
                 case "delUser":
-                    klantVerwijderen(request, response);
+                    this.klantVerwijderen(request, response);
                     break;
+                case "modRente":
+                    this.renteAanpassen(request, response);
+                    return;
                 default:
                     // TODO: add error
                     return;
             }
         }
         this.forwardToDefaultPage(request, response);
+    }
+    
+    private void renteAanpassen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String lnrStr = request.getParameter("lnr");
+        int lnr = -1;
+        try{
+            lnr = Integer.decode(lnrStr);
+        }catch(NumberFormatException e){
+            request.setAttribute("errorstring", "Deze lening bestaat niet");
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        request.setAttribute("lening", this.localBean.getLening(lnr));
+        forwardPage("filiaalRenteAanpassen.jsp", request, response);
     }
     
     private void klantVerwijderen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

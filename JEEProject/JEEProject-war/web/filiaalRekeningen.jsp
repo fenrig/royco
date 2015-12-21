@@ -45,12 +45,15 @@
                 if(leningList.isEmpty()){
                     out.print("&#8608  Heeft geen leningen");
                 }else{
-                    out.print("<table class=\"leningenTable\"><thead><tr><th>Type</th><th>Saldo</th><th>Interest</th><th>Max Rente</th><th>Hypotheek adres</th></tr></thead>");
-                    for (Lening lening : leningList)
+%>
+<table class="leningenTable"><thead><tr><th>Type</th><th>Saldo</th><th>Interest</th><th>Max Rente</th><th>Hypotheek adres</th><th>Rente aanpassen</th><th>Afbetaling</th></tr></thead>
+<%
+                        for (Lening lening : leningList)
                     {
                         VasteLening vasteLening = lening.getVasteLening();
                         VariabeleLening varLening = lening.getVariabeleLening();
                         Adres adres = lening.getAnr();
+                        int lnr = lening.getLnr();
                         out.print("<tr>");
 
                         if (vasteLening != null)
@@ -77,8 +80,21 @@
                         {
                             out.print("<td>nvt</td>");
                         }
-                        out.print("</tr>");
+                        if (varLening != null){
+%>
+                            <td><a href="bankController?a=modRente&lnr=<% out.print(lnr); %>">Rente aanpassen</a></td>
+<%                       }else{
+%>
+                            <td>nvt</td>
+<%
+                            
+                         }
+%>
+                        <td><a href="">Afbetaling</a></td>
+                        </tr>
+<%
                     }
+
                     out.print("</table>");
                 }
 %>
@@ -86,7 +102,7 @@
                     <div class="filiaalActions">
                         <% int knr = klant.getKnr(); %>
                         <a href="filiaalLeningToevoegen.jsp?knr=<% out.print(knr); %>">Lening Toevoegen</a> <br />
-                        <a href="?a=delUser&knr=<% out.print(knr); %>">Klant verwijderen</a> <br />
+                        <a href="bankController?a=delUser&knr=<% out.print(knr); %>">Klant verwijderen</a> <br />
                     </div>
                     <hr style="clear: left" />
                 </div>

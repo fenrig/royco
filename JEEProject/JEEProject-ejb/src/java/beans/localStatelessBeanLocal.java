@@ -33,5 +33,5 @@ public interface localStatelessBeanLocal
     
     public VasteLening addLening(Lening lening, VasteLening vaslening) throws validationException;
     public VariabeleLening addLening(Lening lening, VariabeleLening varlening) throws validationException;
-    
+    public Lening getLening(int lnr);
 }

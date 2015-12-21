@@ -230,5 +230,16 @@ public class localStatelessBean implements localStatelessBeanLocal
         }
         return lening;
     }
+    
+    @Override
+    public Lening getLening(int lnr){
+        Lening ret;
+        try{
+            ret = (Lening) em.createNamedQuery("Lening.findByLnr").setParameter("lnr", lnr).getSingleResult();
+        }catch(NoResultException e){
+            ret = null;
+        }
+        return ret;
+    }
 
 }
