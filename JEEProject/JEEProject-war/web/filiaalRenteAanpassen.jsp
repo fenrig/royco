@@ -62,7 +62,8 @@
 </form>
 <%
             }else{
-               out.print("TODO");
+               // TODO
+                System.out.print("TODO");
                
             }
 %>
