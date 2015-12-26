@@ -5816,3 +5816,43 @@ java.lang.IllegalStateException: Cannot forward after response has been committe
 [2015-12-26T16:21:08.657+0100] [glassfish 4.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=116 _ThreadName=http-listener-1(4)] [timeMillis: 1451143268657] [levelValue: 900] [[
   Context path from ServletContext: /JEEProject-war differs from path from bundle: JEEProject-war]]
 
+[2015-12-26T16:31:46.032+0100] [glassfish 4.0] [WARNING] [] [javax.enterprise.web] [tid: _ThreadID=115 _ThreadName=http-listener-1(3)] [timeMillis: 1451143906032] [levelValue: 900] [[
+  StandardWrapperValve[bankController]: Servlet.service() for servlet bankController threw exception
+java.lang.IllegalStateException: Cannot forward after response has been committed
+	at org.apache.catalina.core.ApplicationDispatcher.doDispatch(ApplicationDispatcher.java:448)
+	at org.apache.catalina.core.ApplicationDispatcher.dispatch(ApplicationDispatcher.java:428)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:378)
+	at controller.baseController.forwardPage(baseController.java:55)
+	at controller.baseController.forwardToDefaultPage(baseController.java:50)
+	at controller.bankController.doPost(bankController.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1682)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:318)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:160)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:734)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:673)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:99)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:174)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:357)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:260)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:188)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:191)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:168)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:189)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:288)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:206)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:136)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:114)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:838)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:113)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:115)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:55)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:135)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:564)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:544)
+	at java.lang.Thread.run(Thread.java:745)
+]]
+

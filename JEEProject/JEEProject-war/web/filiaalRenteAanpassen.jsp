@@ -76,9 +76,10 @@
             }else{
                // TODO
                numberFormatClass formC = new numberFormatClass();
+               Klant klant = len.getKnr();
 %>
 
-
+<a class="name"> <% out.print(klant.getPnr().getPachternaam() + " " + klant.getPnr().getPvoornaam()); %></a>
 <table class="leningenTable">
     <thead><tr><th>Type</th><th>Saldo</th><th>Interest</th><th>Max Rente</th><th>Hypotheek adres</th></tr></thead>
     <tr>
