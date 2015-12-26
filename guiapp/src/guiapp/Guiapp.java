@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package maandelijksinteresttoevoegen;
+package guiapp;
 
 /**
  *
  * @author fenrig
  */
-public class Maandelijksinteresttoevoegen {
+public class Guiapp {
 
     /**
      * @param args the command line arguments
