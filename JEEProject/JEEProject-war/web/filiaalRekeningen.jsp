@@ -4,6 +4,7 @@
     Author     : fenrig
 --%>
 
+<%@page import="beans.numberFormatClass"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="beans.Adres"%>
 <%@page import="beans.VariabeleLening"%>
@@ -28,8 +29,7 @@
         <%@ include file="WEB-INF/jspf/header_bank.jspf" %>
         <hr />
         <%
-            DecimalFormat df = new DecimalFormat("#,###.00");
-            DecimalFormat perc = new DecimalFormat("#.##");
+            numberFormatClass formC = new numberFormatClass();
 
             Persoon persoon = (Persoon)session.getAttribute("persoon");
             Werknemer werknemer = persoon.getWerknemer();
@@ -58,17 +58,17 @@
 
                         if (vasteLening != null)
                         {
-                            out.print("<td>Vaste Lening</td><td>" + df.format(lening.getSaldo()) + "&euro; </td><td>" + perc.format(lening.getInterest() * 100) + "% </td>");
+                            out.print("<td>Vaste Lening</td><td>" + formC.formatCurrency(lening.getSaldo()) + "&euro; </td><td>" + formC.formatPercentage(lening.getInterest()) + " </td>");
                             out.print("<td>nvt</td>");
                         }
                         else if (varLening != null)
                         {
-                            out.print("<td>Variable Lening</td><td>" + df.format(lening.getSaldo()) + "&euro; </td><td>" + perc.format(lening.getInterest() * 100) + "% </td>");
-                            out.print("<td>" + perc.format(varLening.getMaxrente() * 100) + "% </td>");
+                            out.print("<td>Variable Lening</td><td>" + formC.formatCurrency(lening.getSaldo()) + "&euro; </td><td>" + formC.formatPercentage(lening.getInterest()) + " </td>");
+                            out.print("<td>" + formC.formatPercentage(varLening.getMaxrente() * 100) + " </td>");
                         }
                         else
                         {
-                            out.print("<td>Onbekende Lening</td><td>" + df.format(lening.getSaldo()) + "&euro; </td><td>" + perc.format(lening.getInterest() * 100) + "% </td>");
+                            out.print("<td>Onbekende Lening</td><td>" + formC.formatCurrency(lening.getSaldo()) + "&euro; </td><td>" + formC.formatPercentage(lening.getInterest()) + " </td>");
                             out.print("<td>???</td>");
                         }
 

@@ -52,11 +52,11 @@
                     </tr>
                     <tr>
                         <td>Interestvoet:</td>
-                        <td><input name="interestvoet" type="number" max="1" min="0" step="0.00001" /></td>
+                        <td><input name="interestvoet" type="number" max="100" min="0" step="0.001" /></td>
                     </tr>
                     <tr>
                         <td>Max interestvoet:</td>
-                        <td><input name="maxinterestvoet" type="number" max="1" min="0" step="0.00001" /></td>
+                        <td><input name="maxinterestvoet" type="number" max="100" min="0" step="0.001" /></td>
                     </tr>
                     <tr>
                         <!-- TODO: vragen hoe juist max rente vast te stellen -->

@@ -58,10 +58,67 @@ public class bankController extends baseController
             case "filiaalLeningToevoegen.jsp":
                 this.leningToevoegen(request, response);
                 break;
+            case "filiaalRenteAanpassen.jsp":
+                this.renteAanpassen(request, response);
+                break;
             default:
                 forwardPage("ErrorPagina.jsp", request, response);
                 return;
         }
+        this.forwardToDefaultPage(request, response);
+    }
+    
+    private void renteAanpassen(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        int lnr;
+        Lening len;
+        VariabeleLening varlen;
+        double maxinterest;
+        double interest;
+        try{
+            lnr = Integer.decode(request.getParameter("lnr"));
+            len = this.localBean.getLening(lnr);
+            if(len == null){
+                request.setAttribute("errorstring", "Deze lening bestaat niet!");
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+        }catch(NumberFormatException e){
+            String emsg = "U hebt de verkeerde lening (lnr) gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        
+        varlen = len.getVariabeleLening();
+        if(varlen == null){
+            request.setAttribute("errorstring", "Enkel de interest van de variabele lening kan worden aangepast!");
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        
+        maxinterest = varlen.getMaxrente();
+        try{
+            interest = Double.parseDouble(request.getParameter("interestvoet")) / 100;
+        }catch(NumberFormatException e){
+            String emsg = "U hebt de verkeerde interestvoet gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        if(interest > maxinterest){
+            numberFormatClass numC = new numberFormatClass();
+            request.setAttribute("errorstring", "De interest (" + numC.formatPercentage(interest)  + ") mag niet groter zijn dan de max interest(" + numC.formatPercentage(maxinterest) + ") !");
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        
+        len.setInterest(interest);
+        this.localBean.modLening(len);
+        this.setSessionPersoon(request);
     }
     
     protected void leningToevoegen(HttpServletRequest request, HttpServletResponse response)
@@ -322,7 +379,8 @@ public class bankController extends baseController
                     this.klantVerwijderen(request, response);
                     break;
                 case "modRente":
-                    this.renteAanpassen(request, response);
+                    this.getLening(request, response);
+                    forwardPage("filiaalRenteAanpassen.jsp", request, response);
                     return;
                 default:
                     // TODO: add error
@@ -332,7 +390,7 @@ public class bankController extends baseController
         this.forwardToDefaultPage(request, response);
     }
     
-    private void renteAanpassen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void getLening(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String lnrStr = request.getParameter("lnr");
         int lnr = -1;
         try{
@@ -343,7 +401,6 @@ public class bankController extends baseController
             return;
         }
         request.setAttribute("lening", this.localBean.getLening(lnr));
-        forwardPage("filiaalRenteAanpassen.jsp", request, response);
     }
     
     private void klantVerwijderen(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

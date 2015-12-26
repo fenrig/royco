@@ -232,6 +232,13 @@ public class localStatelessBean implements localStatelessBeanLocal
     }
     
     @Override
+    public Lening modLening(Lening lening){
+        Lening len = em.merge(lening);
+        em.persist(len);
+        return len;
+    }
+    
+    @Override
     public Lening getLening(int lnr){
         Lening ret;
         try{
