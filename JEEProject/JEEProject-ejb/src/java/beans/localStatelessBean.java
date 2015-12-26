@@ -254,5 +254,11 @@ public class localStatelessBean implements localStatelessBeanLocal
         Lening len = em.merge(lening);
         em.remove(len);
     }
+    
+    @Override
+    public List<Lening> getAllLeningen(){
+        List<Lening> lenlist = em.createNamedQuery("Lening.findAll").getResultList();
+        return lenlist;
+    }
 
 }

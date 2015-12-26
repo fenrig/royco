@@ -36,4 +36,5 @@ public interface localStatelessBeanLocal
     public Lening modLening(Lening lening);
     public Lening getLening(int lnr);
     public void removeLening(Lening lening);
+    public List<Lening> getAllLeningen();
 }

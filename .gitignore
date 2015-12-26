@@ -2,3 +2,4 @@ nbproject/
 build/
 domain/generated/
 JEEProject/dist/gfdeploy/JEEProject
+/JEEProject/JEEProject-ejb/dist/
