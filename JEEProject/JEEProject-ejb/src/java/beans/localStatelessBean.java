@@ -248,5 +248,11 @@ public class localStatelessBean implements localStatelessBeanLocal
         }
         return ret;
     }
+    
+    @Override
+    public void removeLening(Lening lening){
+        Lening len = em.merge(lening);
+        em.remove(len);
+    }
 
 }

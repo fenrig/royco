@@ -35,4 +35,5 @@ public interface localStatelessBeanLocal
     public VariabeleLening addLening(Lening lening, VariabeleLening varlening) throws validationException;
     public Lening modLening(Lening lening);
     public Lening getLening(int lnr);
+    public void removeLening(Lening lening);
 }

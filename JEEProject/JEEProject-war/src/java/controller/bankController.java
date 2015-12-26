@@ -61,10 +61,62 @@ public class bankController extends baseController
             case "filiaalRenteAanpassen.jsp":
                 this.renteAanpassen(request, response);
                 break;
+            case "filiaalAfbetalingDoen.jsp":
+                this.afbetalingUitvoeren(request, response);
+                break;
             default:
                 forwardPage("ErrorPagina.jsp", request, response);
                 return;
         }
+    }
+    
+    private void afbetalingUitvoeren(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException
+    {
+         int lnr;
+        Lening len;
+        double huidigsaldo, tebetalensaldo;
+        
+        try{
+            lnr = Integer.decode(request.getParameter("lnr"));
+            len = this.localBean.getLening(lnr);
+            if(len == null){
+                request.setAttribute("errorstring", "Deze lening bestaat niet!");
+                forwardPage("bankError.jsp", request, response);
+                return;
+            }
+        }catch(NumberFormatException e){
+            String emsg = "U hebt de verkeerde lening (lnr) gekozen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        try{
+            tebetalensaldo = Double.parseDouble(request.getParameter("saldo"));
+        }catch(NumberFormatException e){
+            String emsg = "U hebt de verkeerde saldo gekozen om af te betalen";
+            request.setAttribute("errorstring", emsg);
+            request.setAttribute("exception", e);
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        huidigsaldo = len.getSaldo();
+        if(tebetalensaldo > huidigsaldo){
+            numberFormatClass numC = new numberFormatClass();
+            request.setAttribute("errorstring", "Het te betalen saldo (" + numC.formatCurrency(tebetalensaldo)  + ") mag niet groter zijn dan de huidige saldo(" + numC.formatCurrency(huidigsaldo) + ") !");
+            forwardPage("bankError.jsp", request, response);
+            return;
+        }
+        huidigsaldo = huidigsaldo - tebetalensaldo;
+        if(huidigsaldo > 0){
+            len.setSaldo(huidigsaldo);
+            this.localBean.modLening(len);
+        }else{
+            this.localBean.removeLening(len);
+        }
+        
+        this.setSessionPersoon(request);
         this.forwardToDefaultPage(request, response);
     }
     
@@ -119,6 +171,7 @@ public class bankController extends baseController
         len.setInterest(interest);
         this.localBean.modLening(len);
         this.setSessionPersoon(request);
+        this.forwardToDefaultPage(request, response);
     }
     
     protected void leningToevoegen(HttpServletRequest request, HttpServletResponse response)
@@ -382,6 +435,10 @@ public class bankController extends baseController
                     this.getLening(request, response);
                     forwardPage("filiaalRenteAanpassen.jsp", request, response);
                     return;
+                case "modSaldo":
+                    this.getLening(request, response);
+                    forwardPage("filiaalAfbetalingDoen.jsp", request, response);
+                    return;
                 default:
                     // TODO: add error
                     return;
@@ -425,6 +482,7 @@ public class bankController extends baseController
 
             }
         }
+        this.forwardToDefaultPage(request, response);
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

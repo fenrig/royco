@@ -90,7 +90,7 @@
                             
                          }
 %>
-                        <td><a href="">Afbetaling</a></td>
+                        <td><a href="bankController?a=modSaldo&lnr=<% out.print(lnr); %>">Afbetaling</a></td>
                         </tr>
 <%
                     }
