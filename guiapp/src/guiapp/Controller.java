@@ -21,11 +21,16 @@ public class Controller {
     }
     
     public String werkIntrestvoetenbij(){
+        String ret = "";
+        System.out.print("test");
+        Controller.localbean.getVoidAdres();
+        
+ /*
         List<Lening> lenlist = this.localbean.getAllLeningen();
         System.out.print(lenlist);
         Double saldo;
         Double interest;
-        String ret = "";
+        
         for(Lening lenI : lenlist){
             saldo = lenI.getSaldo();
             interest = lenI.getInterest();
@@ -34,7 +39,8 @@ public class Controller {
             ret += "Nieuw saldo: " + Double.toString(saldo);
             lenI.setSaldo(saldo);
             localbean.modLening(lenI);
-        }
+        } 
+*/
         return ret;
     }
    

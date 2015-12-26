@@ -24,9 +24,9 @@ public class mainUI extends JFrame implements ActionListener{
     private JTextArea jtextarea_output = new JTextArea();
     private JButton jbutton_bereken = new JButton("Werk saldo's bij");
     
-    public mainUI(Controller controller){
+    public mainUI(Controller controllerx){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        this.controller = null;
+        this.controller = controllerx;
         
         this.jpanel_panel.add(this.jtextarea_output);
         this.jpanel_panel.add(this.jbutton_bereken);
