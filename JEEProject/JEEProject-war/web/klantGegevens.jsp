@@ -25,7 +25,6 @@
                 <tr><td><label for="postcode">Postcode</label></td><td><input type="text" value="${sessionScope.persoon.klant.anr.postcode}" name="postcode" /></td></tr>
             </table>
             <input type="hidden" value="gegevensAanpassing" name="state" /><input type="submit" value="Wijzig Gegevens" />
-            <br /><br />TODO: adres aanpassen
         </form>
     </body>
 </html>
