@@ -47,7 +47,7 @@ public class baseController extends HttpServlet
     }
     
     protected void forwardToDefaultPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        this.forwardPage(this.defaultForwardPage, request, response);
+        baseController.forwardPage(this.defaultForwardPage, request, response);
     }
 
     public static void forwardPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
