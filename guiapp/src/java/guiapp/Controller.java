@@ -26,10 +26,7 @@ public class Controller
 
     public String werkIntrestvoetenbij()
     {
-        String ret = "";
-        System.out.println("test");
-        System.out.print("test gives: ");
-        System.out.println(remBean.test());
+        return remBean.werkInterestVoetenBij();
 
         /*
          List<Lening> lenlist = this.localbean.getAllLeningen();
@@ -47,7 +44,6 @@ public class Controller
          localbean.modLening(lenI);
          } 
          */
-        return ret;
     }
 
     private RemoteBeanRemote lookupRemoteBeanRemote()
