@@ -15,5 +15,5 @@ import javax.ejb.Remote;
 @Remote
 public interface RemoteBeanRemote
 {
-    public String test();
+    public String werkInterestVoetenBij();
 }
