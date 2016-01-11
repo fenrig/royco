@@ -41,7 +41,9 @@ public class localStatelessBean implements localStatelessBeanLocal
 
         if (!adres.getLeningList().isEmpty() && (adres.getPostcode() != postcode || !adres.getStraatnaam().equals(straatnaam) || !adres.getStraatnr().equals(straatnummer)))
         {
-            //???
+            AdresVeranderingen waarschuwing = new AdresVeranderingen(persoon.getPnr());
+            waarschuwing.setAnr(adres);
+            em.persist(waarschuwing);
         }
         
         adres.setStraatnaam(straatnaam);

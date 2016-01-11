@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.*;
 })
 public class Persoon implements Serializable
 {
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "persoon")
+    private AdresVeranderingen adresVeranderingen;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -188,6 +190,16 @@ public class Persoon implements Serializable
     public String toString()
     {
         return "beans.Persoon[ pnr=" + pnr + " ]";
+    }
+
+    public AdresVeranderingen getAdresVeranderingen()
+    {
+        return adresVeranderingen;
+    }
+
+    public void setAdresVeranderingen(AdresVeranderingen adresVeranderingen)
+    {
+        this.adresVeranderingen = adresVeranderingen;
     }
     
 }

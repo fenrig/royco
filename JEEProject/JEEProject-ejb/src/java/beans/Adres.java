@@ -23,6 +23,8 @@ import javax.xml.bind.annotation.*;
 })
 public class Adres implements Serializable
 {
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "anr")
+    private AdresVeranderingen adresVeranderingen;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -159,6 +161,16 @@ public class Adres implements Serializable
     
     public String print(){
         return toString();
+    }
+
+    public AdresVeranderingen getAdresVeranderingen()
+    {
+        return adresVeranderingen;
+    }
+
+    public void setAdresVeranderingen(AdresVeranderingen adresVeranderingen)
+    {
+        this.adresVeranderingen = adresVeranderingen;
     }
     
 }

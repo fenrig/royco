@@ -40,6 +40,9 @@
             {
                 out.print("<div class=\"filiaalRekening\"><div class=\"rekeningOverzicht\">");
                 out.print("<a class=\"name\">" + klant.getPnr().getPachternaam() + " " + klant.getPnr().getPvoornaam() + "</a>");
+                if (klant.getPnr().getAdresVeranderingen() !=null){
+                    out.print("<span class=\"warning\">Adres is aangepast</span>");
+                }
                 out.print("<br />");
                 List<Lening> leningList = klant.getLeningList();
                 if(leningList.isEmpty()){
